@@ -1,0 +1,58 @@
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# Memory capture files
+*.memoryprofile
+
+# Asset meta data should be version controlled
+!*.meta
+
+# Ignore built application
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# Crash logs
+sysinfo.txt
+*.stackdump
+
+# OS generated
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+
+# Unity3D Generated
+ExportedObj/
+.consulo/
+*.unityproj
+*.booproj
+
+# Rider
+.idea/
+*.sln.iml
