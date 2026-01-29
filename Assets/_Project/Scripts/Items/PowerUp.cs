@@ -35,6 +35,9 @@ public class PowerUp : Item
             case PowerUpType.Invincibility:
                 ApplyInvincibilityPowerUp(collector);
                 break;
+            case PowerUpType.DoubleJump:
+                ApplyDoubleJumpPowerUp(collector);
+                break;
         }
     }
     
@@ -64,5 +67,11 @@ public class PowerUp : Item
     {
         // Implement invincibility
         Debug.Log("Invincibility applied");
+    }
+
+    private void ApplyDoubleJumpPowerUp(GameObject collector)
+    {
+        // Implement double jump
+        Debug.Log("Double jump applied");
     }
 }

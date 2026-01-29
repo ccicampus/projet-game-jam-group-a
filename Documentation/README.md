@@ -48,6 +48,6 @@ This project follows a modular folder structure designed for team collaboration.
 ## Getting Started
 
 1. Open the project in Unity 6.2
-2. Run the C# script generation scripts to create starter code
-3. Check ProjectSettings for proper layer and tag setup
-4. Review the scene setup in Scenes/_Main.unity
+2. Check ProjectSettings for proper layer and tag setup (refer to `Constants.cs` for layer and tag definitions)
+3. Review the scene setup in Scenes/SampleScene.unity
+4. Ensure all manager singletons (GameManager, InputManager, AudioManager) are instantiated in the first scene or the project will auto-create them

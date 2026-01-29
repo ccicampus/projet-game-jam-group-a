@@ -46,7 +46,8 @@ public abstract class Item : MonoBehaviour
         // Spawn VFX
         if (collectEffect != null)
         {
-            Instantiate(collectEffect, transform.position, Quaternion.identity);
+            GameObject vfx = Instantiate(collectEffect, transform.position, Quaternion.identity);
+            Destroy(vfx, 2f);
         }
         
         // Apply item effect

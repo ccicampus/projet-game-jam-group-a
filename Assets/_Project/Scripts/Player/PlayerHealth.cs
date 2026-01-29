@@ -91,6 +91,13 @@ public class PlayerHealth : MonoBehaviour
         OnDeath?.Invoke();
     }
     
+    private void OnDestroy()
+    {
+        OnHealthChanged?.RemoveAllListeners();
+        OnDeath?.RemoveAllListeners();
+        OnDamageTaken?.RemoveAllListeners();
+    }
+
     public int GetCurrentHealth() => currentHealth;
     public int GetMaxHealth() => maxHealth;
     public float GetHealthPercentage() => (float)currentHealth / maxHealth;
