@@ -303,6 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Minigame
   totalHits: 5
+  timeout: 10
   textObject: {fileID: 1316330713}
 --- !u!1 &1148237214
 GameObject:
