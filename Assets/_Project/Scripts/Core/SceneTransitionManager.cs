@@ -58,8 +58,22 @@ public class SceneTransitionManager : MonoBehaviour
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
 
+        if (asyncLoad == null)
+        {
+            Debug.LogError($"Failed to load scene: {sceneName}. Scene does not exist.");
+            isTransitioning = false;
+            yield break;
+        }
+
         while (!asyncLoad.isDone)
         {
+            if (asyncLoad.failed)
+            {
+                Debug.LogError($"Failed to load scene: {sceneName}");
+                isTransitioning = false;
+                yield break;
+            }
+
             // Update loading bar if needed
             float progress = Mathf.Clamp01(asyncLoad.progress / 0.9f);
             yield return null;
@@ -79,8 +93,22 @@ public class SceneTransitionManager : MonoBehaviour
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneIndex);
 
+        if (asyncLoad == null)
+        {
+            Debug.LogError($"Failed to load scene at index: {sceneIndex}. Scene does not exist.");
+            isTransitioning = false;
+            yield break;
+        }
+
         while (!asyncLoad.isDone)
         {
+            if (asyncLoad.failed)
+            {
+                Debug.LogError($"Failed to load scene at index: {sceneIndex}");
+                isTransitioning = false;
+                yield break;
+            }
+
             float progress = Mathf.Clamp01(asyncLoad.progress / 0.9f);
             yield return null;
         }
@@ -95,6 +123,7 @@ public class SceneTransitionManager : MonoBehaviour
         if (Instance == this)
         {
             Instance = null;
+            StopAllCoroutines();
         }
     }
 }

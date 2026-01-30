@@ -105,6 +105,12 @@ public class Enemy : MonoBehaviour
         }
     }
     
+    protected virtual void OnDestroy()
+    {
+        OnHealthChanged?.RemoveAllListeners();
+        OnDeath?.RemoveAllListeners();
+    }
+
     public int GetCurrentHealth() => currentHealth;
     public int GetMaxHealth() => maxHealth;
     public bool IsDead() => isDead;
