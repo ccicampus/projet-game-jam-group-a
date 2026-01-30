@@ -1,14 +1,15 @@
 # Projet Game Jam Group A - Project State
 
-**Last Updated:** 2026-01-29
-**Status:** Ready for development (Critical fixes applied)
-**Next Update:** Friday night (after team meeting + GDD completion)
+**Last Updated:** 2026-01-30
+**Status:** JAM ACTIVE - Game concept locked, tasks assigned
+**Game:** "The Masked Visitor" - Halloween trick-or-treat interactive game
+**Theme:** Global Game Jam 2026 - "Mask"
 
 ---
 
 ## Executive Summary
 
-This is a **Unity 2D Game Jam Starter Framework** (Unity 6.2) designed for rapid team development. All core manager systems are implemented and the codebase follows professional patterns. **5 critical code quality issues were fixed on 2026-01-29** to prepare for jam development.
+This is a **Unity 2D Game Jam Starter Framework** (Unity 6.2) for "The Masked Visitor" - a spooky but kid-friendly Halloween game. All core manager systems are ready, and the team is organized with clear task assignments. **Game concept locked 2026-01-30** with full team onboarding.
 
 ---
 
@@ -295,39 +296,82 @@ bool jumpPressed = InputManager.Instance.IsJumpPressed;
 
 ---
 
-## Known Limitations & Notes
+## Game Concept: "The Masked Visitor"
 
-1. **GDD Not Filled:** Game design document is template-only. Needs team input.
-2. **PowerUp Effects Incomplete:** Speed, Jump, Invincibility effects are Debug.Log only. Team needs to implement actual systems.
-3. **Scene Reference:** Only SampleScene.unity exists. Create additional scenes as needed for levels.
-4. **Managers Must Exist:** All managers should be in the first scene or auto-created. Ensure proper setup.
-5. **Rebinding System:** InputManager has framework but custom rebinding UI needs implementation.
+### Story
+An old person doing trick-or-treat on Halloween encounters masked visitors at their front door. They must determine if each visitor is "nice" or a "monster" using mini-games that provide clues.
+
+### Core Loop
+1. **Scene:** Walk through 2D parallax hallway toward front door
+2. **Encounter:** Masked visitor appears at door
+3. **Mini-games:** Play 2-3 random games to gather clues (QTE, Point & Click, Candy basket, Memory, Combat)
+4. **Judge:** Decide if "Nice" or "Monster" with timer pressure
+5. **Score:** Right = points, Wrong = malus
+6. **Reset:** Fade out, next visitor appears
+7. **Repeat:** Endless loop
+
+### Visual Style
+- 2D sprites with parallax scrolling (fake 3D depth)
+- Halloween spooky but burlesque/quirky tone
+- Varied mask designs (fun, scary, unusual)
+- Warm lighting for hallway, depth perception via shadows
+
+### Mini-Games (Clue-Providers)
+- **Combat:** Grab cane/umbrella, fight/scare visitor (Alex's task)
+- **QTE:** Quick-time button pressing reactions
+- **Point & Click:** Examine visitor for visual clues
+- **Candy Basket:** Choose candies, spoilt ones = malus
+- **Memory:** Matching game (fits old character theme)
 
 ---
 
-## Next Steps (Priority Order)
+## Task Assignments (14 Tasks Total)
 
-### Before Jam Starts:
-1. ✓ Fix 5 critical code issues (DONE - 2026-01-29)
-2. ⬜ Complete GDD with game design (Friday night - team meeting)
-3. ⬜ Update CLAUDE.md with team info (Friday night)
-4. ⬜ Verify manager setup in SampleScene
-5. ⬜ Test scene loading and manager persistence
-6. ⬜ Design level layout and enemy/item placement
-7. ⬜ Implement PowerUp effects (Speed, Jump, Invincibility)
+### Designers (Morgane & Laetitia)
+1. **Task #1** - Design 2D hallway scene with parallax depth effect (Morgane or Laetitia)
+2. **Task #2** - Design visitor character masks and variations (Morgane or Laetitia)
+3. **Task #13** - UI Design: Mini-game layouts and judgment screens (shared)
+
+### Sound Engineer (Pierre Albert)
+4. **Task #11** - Create audio: Halloween theme music and loop
+5. **Task #12** - Create audio: Mini-game SFX and feedback sounds
+
+### Developers (Alex, Mohamed, Thomas M., Thomas de O.)
+**Alex:**
+- **Task #5** - Build combat mini-game (cane/umbrella fight)
+
+**Mohamed (or assign):**
+- **Task #3** - Build mini-game framework system (PRIORITY - others depend on this)
+- **Task #4** - Implement judgment system + score tracking
+- **Task #10** - Build timer system for judgment phase
+
+**Thomas M. (or assign):**
+- **Task #6** - Implement Point & Click examination mini-game
+- **Task #7** - Implement candy basket selection mini-game
+- **Task #8** - Implement memory game (card/pattern matching)
+
+**Thomas de O. (or assign):**
+- **Task #9** - Implement QTE (Quick-Time Event) mini-game
+- **Task #14** - Full game integration and system testing (final phase)
+
+### Critical Path
+1. **Start:** Task #3 (mini-game framework) - other games depend on it
+2. **Parallel:** Tasks #1, #11, #12 (design + audio can start immediately)
+3. **Then:** Individual mini-games (#5-9)
+4. **Finally:** Task #14 (integration + testing)
 
 ### During Jam:
-- Use provided managers consistently (don't create new ones)
+- Use provided managers (GameManager, InputManager, AudioManager, PoolingManager)
 - Register to events but unregister in OnDestroy
 - Pool frequently spawned objects
-- Follow naming conventions from StyleGuide
+- Follow naming conventions from StyleGuide.md
 - Test frequently - run the game every 30 minutes
+- Update CLAUDE.md with daily progress
 
-### Post-Jam:
-- Profile memory usage (PoolingManager should help)
+### Post-Jam (if time):
+- Profile memory usage
 - Optimize hot paths
 - Polish audio and VFX timing
-- Refactor code if needed (time permitting)
 
 ---
 
@@ -359,34 +403,46 @@ bool jumpPressed = InputManager.Instance.IsJumpPressed;
 
 ---
 
-## Team Notes
+## Team & Roles
+
+**Project Manager/Developer:** Thomas (User)
+**Developers (4):** Alex, Mohamed, Thomas M., Thomas de O.
+**Designers (2):** Morgane, Laetitia
+**Sound Engineer:** Pierre Albert
+**Total Team:** 8 people
 
 **Project Created:** Early 2026
-**Framework:** Unity 2021+ starter template
-**Jam Duration:** One weekend (planning Friday night kickoff)
-**Team Size:** TBD (Friday meeting)
-**Game Genre:** TBD (Friday meeting)
-**Art Style:** TBD (Friday meeting)
+**Jam Event:** Global Game Jam 2026
+**Jam Duration:** Jan 30 - Feb 1, 2026 (48 hours)
+**Game Genre:** Halloween Interactive Mini-game Collection
+**Art Style:** Spooky but kid-friendly, flat 2D with parallax depth illusion
+**Target Audience:** All ages
 
 ---
 
-## Code Quality Checklist
+## Jam Readiness Checklist
 
-Before start of jam, verify:
-
-- [x] All 5 critical fixes applied
-- [ ] README updated with accurate information
-- [ ] GDD completed with game design
-- [ ] Managers tested in first scene
-- [ ] Scene loading verified
-- [ ] No console errors on startup
-- [ ] Framerate stable at 60 FPS
-- [ ] Input system responds correctly
-- [ ] Audio system works
-- [ ] Team familiar with project structure
+- [x] All 5 critical code fixes applied (2026-01-29)
+- [x] GDD.md completed with full game design (2026-01-30)
+- [x] CLAUDE.md updated with team info (2026-01-30)
+- [x] Tasks assigned to team members (14 tasks, 8 people)
+- [x] Core managers ready (GameManager, InputManager, AudioManager, PoolingManager)
+- [ ] Verify manager setup in SampleScene (on team's first run)
+- [ ] No console errors on startup (verify)
+- [ ] Framerate stable at 60 FPS (verify)
+- [ ] Team has access to GDD and CLAUDE.md
+- [ ] Task tracking system in place
 
 ---
 
-**Status:** ✅ **READY FOR DEVELOPMENT**
+**Status:** 🚀 **JAM ACTIVE**
 
-All critical code issues resolved. Project is stable and ready for rapid jam development. Awaiting Friday team meeting for game design direction and CLAUDE.md team info update.
+Game concept locked. Team assigned and ready. Framework stable with all critical fixes. Starting game development 2026-01-30.
+
+**Documentation Location:**
+- `/Documentation/GDD.md` - Full game design
+- `/CLAUDE.md` - Project state, team info, tasks
+- `/README.md` - Setup and coding standards
+- `/StyleGuide.md` - Naming conventions and best practices
+
+**First Commit:** Setup docs + task assignments (2026-01-30)
