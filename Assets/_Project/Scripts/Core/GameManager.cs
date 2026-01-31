@@ -64,8 +64,6 @@ public class GameManager : MonoBehaviour
             CollectionManager.Instance.CollectCard(null, 100);
             CollectionManager.Instance.CollectCard(null, 250);
             CollectionManager.Instance.CollectCard(null, 150);
-            CollectionManager.Instance.CollectCard(null, 300);
-            CollectionManager.Instance.CollectCard(null, 200);
 
             if (debugMode)
                 Debug.Log("Test cards added to collection");
