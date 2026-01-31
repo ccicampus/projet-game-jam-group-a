@@ -1,4 +1,15 @@
 {
+    "editor.defaultFormatter": "ms-dotnettools.csharp",
+    "editor.formatOnSave": true,
+    "[csharp]": {
+        "editor.defaultFormatter": "ms-dotnettools.csharp",
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+    "omnisharp.enableEditorConfigSupport": true,
+    "omnisharp.enableRoslynAnalyzers": true,
+    "omnisharp.analyzeOpenDocumentsOnly": false,
+    "editor.rulers": [120],
     "files.exclude": {
         "**/.DS_Store": true,
         "**/.git": true,
