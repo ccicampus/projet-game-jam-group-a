@@ -1,0 +1,33 @@
+{
+    "dialogues": [
+        {
+            "original": "hello !",
+            "choices": [
+                {"answer": "Hello there", "next": 1},
+                {"answer": "nope", "next": 2},
+                {"answer": "oh hell nah", "next": 3}
+            ]
+        },
+        {
+            "original": "<3",
+            "choices": [
+                {"answer": "*blush*", "next": -1},
+                {"answer": "uh", "next": 0}
+            ]
+        },
+        {
+            "original": "why !",
+            "choices": [
+                {"answer": "oh my", "next": -1},
+                {"answer": "because", "next": -1}
+            ]
+        },
+        {
+            "original": "die !",
+            "choices": [
+                {"answer": "no u", "next": -1},
+                {"answer": "yes please", "next": -1}
+            ]
+        }
+    ]
+}
