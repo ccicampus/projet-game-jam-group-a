@@ -163,6 +163,16 @@ public class GameManager : MonoBehaviour
             Debug.Log($"Score added: {points}. Total: {playerScore}");
     }
 
+    public void ApplyMalus(int penalty)
+    {
+        playerScore -= Mathf.Abs(penalty);
+        if (playerScore < 0)
+            playerScore = 0;
+
+        if (debugMode)
+            Debug.Log($"Malus applied: -{penalty}. Total: {playerScore}");
+    }
+
     public void LoadLevel(int levelIndex)
     {
         if (levelIndex < 0)

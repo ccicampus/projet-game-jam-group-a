@@ -12,6 +12,7 @@ public static class Constants
     public const string TAG_ENEMY = "Enemy";
     public const string TAG_GROUND = "Ground";
     public const string TAG_COLLECTIBLE = "Collectible";
+    public const string TAG_VISITOR = "Visitor";
     
     // Layers
     public const int LAYER_GROUND = 6;
@@ -43,4 +44,8 @@ public static class Constants
     public const int MAX_PLAYER_HEALTH = 100;
     public const int MAX_ENEMY_SPAWNS = 50;
     public const float RESPAWN_TIME = 3f;
+
+    // Visitor System
+    public const float DEFAULT_JUDGMENT_TIME = 10f;
+    public const int MALUS_PERCENTAGE = 50; // 50% of base score as penalty
 }
