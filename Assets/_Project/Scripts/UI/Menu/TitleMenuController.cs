@@ -20,8 +20,9 @@ public class TitleMenuController : MonoBehaviour
         Debug.Log("Options clicked");
     }
 
-    public void Quit()
+    public void QuitGame()
     {
+        Debug.Log("Le bouton 'quit' a été pressé !");
         Application.Quit();
     }
 }
