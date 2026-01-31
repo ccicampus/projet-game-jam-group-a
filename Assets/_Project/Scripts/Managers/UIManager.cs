@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject gameplayHUD;
     [SerializeField] private GameObject pauseMenuPanel;
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject collectionPanel;
 
     [Header("Settings")]
     [SerializeField] private bool hideMouseCursor = true;
@@ -83,12 +84,27 @@ public class UIManager : MonoBehaviour
         Cursor.visible = true;
     }
 
+    public void ShowCollection()
+    {
+        if (collectionPanel != null)
+            collectionPanel.SetActive(true);
+
+        Cursor.visible = true;
+    }
+
+    public void HideCollection()
+    {
+        if (collectionPanel != null)
+            collectionPanel.SetActive(false);
+    }
+
     private void HideAllPanels()
     {
         if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
         if (gameplayHUD != null) gameplayHUD.SetActive(false);
         if (pauseMenuPanel != null) pauseMenuPanel.SetActive(false);
         if (gameOverPanel != null) gameOverPanel.SetActive(false);
+        if (collectionPanel != null) collectionPanel.SetActive(false);
     }
 
     private void OnDestroy()
