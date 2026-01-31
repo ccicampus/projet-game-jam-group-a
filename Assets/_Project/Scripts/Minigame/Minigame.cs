@@ -11,6 +11,10 @@ public class Minigame : MonoBehaviour
     public Sprite imageState0;
     public Sprite imageState1;
     public Sprite tutorialImage;
+    private float introductionTimeout = 5f;
+    public GameObject versusBackground;
+    public GameObject versusGrandma;
+    public GameObject versusMonster;
     public Image background;
     private float horizontalInput;
     private bool right = true;
@@ -27,33 +31,29 @@ public class Minigame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (tutorial)
+        if (introductionTimeout > 0)
         {
-            if (InputManager.Instance.JumpPressed)
+            introductionTimeout -= Time.deltaTime;
+        }
+        else
+        {
+            disableIntroduction();
+            if (tutorial)
             {
-                tutorial = false;
-                hpText.text = totalHits.ToString();
+                processTutorial();
             }
-        } else
-        {
-            timeout -= Time.deltaTime;
-            timerText.text = $"{timeout:F2} s";
-            updateSprite();
-
-            if (timeout < 0 && totalHits > 0)
+            else
             {
-                hpText.text = "dead";
-            } else
-            {
-                if (totalHits <= 0)
-                {
-                    hpText.text = "win";
-                } else
-                {
-                    processHit();
-                }
+                processMinigame();
             }
         }
+    }
+
+    void disableIntroduction()
+    {
+        versusBackground.SetActive(false);
+        versusGrandma.SetActive(false);
+        versusMonster.SetActive(false);
     }
 
     void updateSprite()
@@ -61,9 +61,19 @@ public class Minigame : MonoBehaviour
         if (right)
         {
             background.sprite = imageState0;
-        } else
+        }
+        else
         {
             background.sprite = imageState1;
+        }
+    }
+
+    void processTutorial()
+    {
+        if (InputManager.Instance.JumpPressed)
+        {
+            tutorial = false;
+            hpText.text = totalHits.ToString();
         }
     }
 
@@ -76,11 +86,35 @@ public class Minigame : MonoBehaviour
             right = !right;
             totalHits -= 1;
             hpText.text = totalHits.ToString();
-        } else if (!right && horizontalInput == -1)
+        }
+        else if (!right && horizontalInput == -1)
         {
             right = !right;
             totalHits -= 1;
             hpText.text = totalHits.ToString();
+        }
+    }
+
+    void processMinigame()
+    {
+        timeout -= Time.deltaTime;
+        timerText.text = $"{timeout:F2} s";
+        updateSprite();
+
+        if (timeout < 0 && totalHits > 0)
+        {
+            hpText.text = "dead";
+        }
+        else
+        {
+            if (totalHits <= 0)
+            {
+                hpText.text = "win";
+            }
+            else
+            {
+                processHit();
+            }
         }
     }
 }
