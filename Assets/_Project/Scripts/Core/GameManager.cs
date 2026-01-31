@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
             AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
             float progress = stateInfo.normalizedTime;
 
-            Debug.Log($"State: {stateInfo.fullPathHash}, Progress: {progress}");
+            // Debug.Log($"State: {stateInfo.fullPathHash}, Progress: {progress}");
 
             // When door reaches Fully Open, start the delay timer                                   
             if (stateInfo.IsName("FullyOpen") && !doorAnimator.IsInTransition(0))
@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
                 dialogDelayTimer = 0f;
             }
 
-            if (dialogScript.end)
+            if (dialogScript != null && dialogScript.end)
             {
                 if (dialog.activeSelf == true)
                 {

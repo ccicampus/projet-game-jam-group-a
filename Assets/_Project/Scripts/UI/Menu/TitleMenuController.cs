@@ -1,20 +1,46 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class TitleMenuController : MonoBehaviour
 {
+    public AudioSource backgroundMusic;
+    public Animator doorAnimator;
     public GameObject titlePanel;
     public GameObject optionsPanel;
     public GameObject optionsButton;
     public GameObject collectionPanel;
     public GameObject collectionButton;
-    public AudioSource backgroundMusic;
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("Main");
+        if (doorAnimator != null)
+        {
+            doorAnimator.SetTrigger("CloseDoor");
+
+            StartCoroutine(PlayMenuSoundsSequence(1.0f));
+        }
+
+        IEnumerator PlayMenuSoundsSequence(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+
+            AudioSource[] sources = doorAnimator.GetComponents<AudioSource>();
+
+            if (sources.Length >= 2)
+            {
+                yield return new WaitForSeconds(0.2f);
+                sources[0].Play();
+
+                yield return new WaitForSeconds(3.0f);
+                sources[1].Play();
+            }
+        }
+
+        Invoke("HideMenu", 0.1f);
     }
+    void HideMenu() { titlePanel.SetActive(false); }
 
     public void LoadGame()
     {
