@@ -29,7 +29,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Guessing")]
     public float guessing_timer = 3f;
-
+    private bool hasTriggeredDialogThisRound = false;
+    private float dialogDelayTimer = 0f;
+    private const float DIALOG_DELAY = 2f;
     // Properties for controlled access
     public bool IsPaused { get; private set; }
     public int CurrentLevel => currentLevel;
@@ -61,24 +63,44 @@ public class GameManager : MonoBehaviour
     {
         if (doorAnimator != null)
         {
-            // Get the normalized time (0 to 1) of current animation
-            float progress = doorAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+            AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
+            float progress = stateInfo.normalizedTime;
 
-            // Check if animation has finished (normalized time > 1)
-            if (progress >= 1.0f && !doorAnimator.IsInTransition(0))
+            Debug.Log($"State: {stateInfo.fullPathHash}, Progress: {progress}");
+
+            // When door reaches Fully Open, start the delay timer                                   
+            if (stateInfo.IsName("FullyOpen") && !doorAnimator.IsInTransition(0))
             {
-                if (dialog.activeSelf == false)
+                Debug.Log("✓ IN FULLY OPEN STATE");
+                if (!hasTriggeredDialogThisRound)
                 {
-                    dialog.SetActive(true);
+                    dialogDelayTimer += Time.deltaTime;
+                    Debug.Log($"Dialog delay: {dialogDelayTimer}/{DIALOG_DELAY}");
+
+                    if (dialogDelayTimer >= DIALOG_DELAY)
+                    {
+                        Debug.Log(">>> ACTIVATING DIALOG <<<");
+                        if (dialog != null)
+                            dialog.SetActive(true);
+                        else
+                            Debug.LogError("Dialog GameObject is NULL!");
+                        hasTriggeredDialogThisRound = true;
+                    }
                 }
             }
+
+            if (stateInfo.IsName("DoorClosing"))
+            {
+                hasTriggeredDialogThisRound = false;
+                dialogDelayTimer = 0f;
+            }
+
             if (dialogScript.end)
             {
                 if (dialog.activeSelf == true)
                 {
                     dialog.SetActive(false);
                 }
-                Debug.Log("TIMER");
                 guessing_timer -= Time.deltaTime;
                 if (guessing_timer < 0)
                 {
