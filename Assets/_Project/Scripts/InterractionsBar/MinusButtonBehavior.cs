@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MinusButtonBehavior : MonoBehaviour
+public class MinusButtonBehavior : MonoBehaviour // TODO : implementation example, delete this in final version
 {
     [SerializeField] private Button minusButton;
 
@@ -13,7 +13,7 @@ public class MinusButtonBehavior : MonoBehaviour
         this.minusButton.onClick.AddListener(() => {
                 InteractBarManager
                     .Instance?
-                    .Decrease();
+                    .Decrease(); // Use this function to decrease interaction bar
             }
         );
     }

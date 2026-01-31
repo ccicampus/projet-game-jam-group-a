@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlusButtonBehavior : MonoBehaviour
+public class PlusButtonBehavior : MonoBehaviour // TODO : implementation example, delete this in final version
 {
     [SerializeField] private Button plusButton;
 
@@ -13,7 +13,7 @@ public class PlusButtonBehavior : MonoBehaviour
         this.plusButton.onClick.AddListener(() => {
                 InteractBarManager
                     .Instance?
-                    .Increase();
+                    .Increase(); // Use this function to increase interaction bar
             }
         );
     }

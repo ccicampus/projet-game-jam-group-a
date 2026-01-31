@@ -7,7 +7,7 @@ public class InteractBarContent : MonoBehaviour
     private const int maxNotches = 5;
     private int count;
 
-    [SerializeField] private Image interactionBar;
+    [SerializeField] private Image interactionBarContent;
 
     [Header("Debug")]
     [SerializeField] protected bool debugMode = false;
@@ -40,7 +40,14 @@ public class InteractBarContent : MonoBehaviour
 
     private void Render(int current, int max)
     {
-        // TODO : currently no render, fix issue here
-        this.interactionBar.fillAmount = (float)current / max;
+        RectTransform rectTransform = this.interactionBarContent.GetComponent<RectTransform>();
+
+        if (this.debugMode)
+            Debug.Log(rectTransform.rect.yMax);
+
+        rectTransform.SetSizeWithCurrentAnchors(
+            RectTransform.Axis.Vertical,
+            360f * ((float)current / max) // TODO : récupérer 360 avec le code (parent?) pour être plus maintenable
+        );
     }
 }
