@@ -1,0 +1,18 @@
+{
+  "FormattingOptions": {
+    "IndentSize": 4,
+    "TabSize": 4,
+    "UseTabs": false,
+    "NewLine": "\n"
+  },
+  "RoslynExtensionsOptions": {
+    "EnableAnalyzersSupport": true,
+    "LocationPaths": []
+  },
+  "RoslynAnalyzerFeaturesOptions": {
+    "Enabled": true
+  },
+  "Sdk": {
+    "Version": "latest"
+  }
+}
