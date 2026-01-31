@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0fbd7ce8dfa214a908cb9c2fd1078fca, type: 2}
-  m_sharedMaterial: {fileID: -3356959405303054578, guid: 0fbd7ce8dfa214a908cb9c2fd1078fca, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 657ee870c3fa24e179ff388deb5cfcab, type: 2}
+  m_sharedMaterial: {fileID: -6151642293797449426, guid: 657ee870c3fa24e179ff388deb5cfcab, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 8809087031506724839}
   - component: {fileID: 3625906330738882286}
   - component: {fileID: 8119765568378465209}
+  - component: {fileID: 8997378086378175382}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -293,3 +294,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8997378086378175382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8119452335824762538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275bce77f1241491892795d16dcab873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuButtonFocus
