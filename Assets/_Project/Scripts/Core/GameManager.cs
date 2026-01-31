@@ -22,6 +22,14 @@ public class GameManager : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool debugMode = false;
 
+    [Header("Door")]
+    public Animator doorAnimator;
+    public GameObject dialog;
+    public Dialogs dialogScript;
+
+    [Header("Guessing")]
+    public float guessing_timer = 3f;
+
     // Properties for controlled access
     public bool IsPaused { get; private set; }
     public int CurrentLevel => currentLevel;
@@ -47,6 +55,37 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         InitializeGame();
+    }
+
+    void Update()
+    {
+        if (doorAnimator != null)
+        {
+            // Get the normalized time (0 to 1) of current animation
+            float progress = doorAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+
+            // Check if animation has finished (normalized time > 1)
+            if (progress >= 1.0f && !doorAnimator.IsInTransition(0))
+            {
+                if (dialog.activeSelf == false)
+                {
+                    dialog.SetActive(true);
+                }
+            }
+            if (dialogScript.end)
+            {
+                if (dialog.activeSelf == true)
+                {
+                    dialog.SetActive(false);
+                }
+                Debug.Log("TIMER");
+                guessing_timer -= Time.deltaTime;
+                if (guessing_timer < 0)
+                {
+                    SceneTransitionManager.Instance.LoadScene(2);
+                }
+            }
+        }
     }
 
     private void InitializeGame()
@@ -122,9 +161,9 @@ public class GameManager : MonoBehaviour
 
         Application.Quit();
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-        #endif
+#endif
     }
 
     private void OnDestroy()

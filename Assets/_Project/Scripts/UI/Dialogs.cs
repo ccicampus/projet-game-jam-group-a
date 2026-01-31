@@ -35,9 +35,11 @@ public class Dialogs : MonoBehaviour
     private bool inTimeout = false;
     private float timeout = 0.5f;
     private float maxTimeout = 0.5f;
+    public bool end = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        dialogPanel.SetActive(false);
         optionTextList = new TextMeshProUGUI[] { optionTextObject1, optionTextObject2, optionTextObject3 };
         dialoguesInJson = JsonUtility.FromJson<Dialogues>(jsonFile.text);
         getNextDialog();
@@ -54,7 +56,6 @@ public class Dialogs : MonoBehaviour
         {
             handleInput();
         }
-
     }
 
     void getNextDialog(int chosen = -1)
@@ -68,7 +69,8 @@ public class Dialogs : MonoBehaviour
             step = dialoguesInJson.dialogues[step].choices[chosen].next;
             if (step == -1)
             {
-                dialogPanel.SetActive(false);
+                end = true;
+                // dialogPanel.SetActive(false);
                 return;
             }
         }
