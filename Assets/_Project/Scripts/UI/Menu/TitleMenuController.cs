@@ -21,6 +21,7 @@ public class TitleMenuController : MonoBehaviour
 
             StartCoroutine(PlayMenuSoundsSequence(1.0f));
         }
+        Invoke("HideMenu", 0.1f);
 
         IEnumerator PlayMenuSoundsSequence(float delay)
         {
@@ -38,15 +39,14 @@ public class TitleMenuController : MonoBehaviour
             }
         }
 
-        Invoke("HideMenu", 0.1f);
+        SaveSystem.Instance.LoadGame();
+        SceneTransitionManager.Instance.LoadScene("Main");
     }
     void HideMenu() { titlePanel.SetActive(false); }
 
     public void LoadGame()
     {
         // Load save data                                                                         
-        SaveSystem.Instance.LoadGame();
-        SceneManager.LoadScene("Main");
     }
 
     public void OpenOptions()

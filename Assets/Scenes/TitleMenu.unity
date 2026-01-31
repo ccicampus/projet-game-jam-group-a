@@ -1348,7 +1348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3f09fb0bd3e4781b3d4d87d5276724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneTransitionManager
-  transitionDuration: 1
+  transitionDuration: 3
   useLoadingScreen: 0
 --- !u!1001 &886432400
 PrefabInstance:
