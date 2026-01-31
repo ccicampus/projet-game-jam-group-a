@@ -57,6 +57,19 @@ public class GameManager : MonoBehaviour
         // Initialize other systems here
         if (debugMode)
             Debug.Log("Game initialized");
+
+        // TEST: Add test cards to collection (remove this later)
+        if (CollectionManager.Instance != null)
+        {
+            CollectionManager.Instance.CollectCard(null, 100);
+            CollectionManager.Instance.CollectCard(null, 250);
+            CollectionManager.Instance.CollectCard(null, 150);
+            CollectionManager.Instance.CollectCard(null, 300);
+            CollectionManager.Instance.CollectCard(null, 200);
+
+            if (debugMode)
+                Debug.Log("Test cards added to collection");
+        }
     }
 
     public void PauseGame()
