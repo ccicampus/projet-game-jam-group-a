@@ -7,6 +7,8 @@ public class TitleMenuController : MonoBehaviour
     public GameObject titlePanel;
     public GameObject optionsPanel;
     public GameObject optionsButton;
+    public GameObject collectionPanel;
+    public GameObject collectionButton;
     public AudioSource backgroundMusic;
 
     public void PlayGame()
@@ -44,6 +46,32 @@ public class TitleMenuController : MonoBehaviour
         {
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(optionsButton);
+        }
+    }
+
+    public void OpenCollection()
+    {
+        titlePanel.SetActive(false);
+        collectionPanel.SetActive(true);
+
+        GameObject bckToTitleBtn = optionsPanel.transform.Find("BackToTitleButton").gameObject;
+
+        if (bckToTitleBtn != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(bckToTitleBtn);
+        }
+    }
+
+    public void CloseCollection()
+    {
+        collectionPanel.SetActive(false);
+        titlePanel.SetActive(true);
+
+        if (collectionButton != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(collectionButton);
         }
     }
 

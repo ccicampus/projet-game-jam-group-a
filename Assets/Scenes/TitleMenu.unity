@@ -545,6 +545,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330186600}
   m_CullTransparentMesh: 1
+--- !u!114 &348879526 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1123360423206184116, guid: fa6f5431fb7664093b1e303bb9c5d666, type: 3}
+  m_PrefabInstance: {fileID: 1641448627}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!1 &528951048 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8119452335824762538, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
+  m_PrefabInstance: {fileID: 553958856}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &547853874 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 638882614771620818, guid: fa6f5431fb7664093b1e303bb9c5d666, type: 3}
+  m_PrefabInstance: {fileID: 1641448627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &553958856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -605,6 +626,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -16
       objectReference: {fileID: 0}
+    - target: {fileID: 3625906330738882286, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625906330738882286, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 932094469}
     - target: {fileID: 3625906330738882286, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -712,13 +741,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8119452335824762538, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 553958863}
   m_SourcePrefab: {fileID: 100100000, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
 --- !u!224 &553958857 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3901351049596838470, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
   m_PrefabInstance: {fileID: 553958856}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &553958863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528951048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21c0cb4e6562d47458f79f38ad9cc783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuButtonColor
+  buttonText: {fileID: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &603500396
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +1001,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647035791}
   m_CullTransparentMesh: 1
+--- !u!1 &703912236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8119452335824762538, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
+  m_PrefabInstance: {fileID: 886432400}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &703912242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703912236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21c0cb4e6562d47458f79f38ad9cc783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuButtonColor
+  buttonText: {fileID: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &863458171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,7 +1141,7 @@ PrefabInstance:
     - target: {fileID: 3625906330738882286, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1311534248}
     - target: {fileID: 3625906330738882286, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1087,11 +1152,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3625906330738882286, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowCollection
+      value: OpenCollection
       objectReference: {fileID: 0}
     - target: {fileID: 3625906330738882286, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UIManager, Assembly-CSharp
+      value: TitleMenuController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3625906330738882286, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1184,7 +1249,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8119452335824762538, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 703912242}
   m_SourcePrefab: {fileID: 100100000, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
 --- !u!1 &909302113
 GameObject:
@@ -1266,6 +1334,31 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3901351049596838470, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
   m_PrefabInstance: {fileID: 7076399331429577459}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &932094469 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3625906330738882286, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
+  m_PrefabInstance: {fileID: 7076399331429577459}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110200066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!114 &932094472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110200066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21c0cb4e6562d47458f79f38ad9cc783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuButtonColor
+  buttonText: {fileID: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &939507429
 GameObject:
   m_ObjectHideFlags: 0
@@ -1689,7 +1782,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8119452335824762538, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1955967784}
   m_SourcePrefab: {fileID: 100100000, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
 --- !u!1 &1223553375
 GameObject:
@@ -1922,6 +2018,8 @@ MonoBehaviour:
   titlePanel: {fileID: 1853288571}
   optionsPanel: {fileID: 647035791}
   optionsButton: {fileID: 1934996564}
+  collectionPanel: {fileID: 547853874}
+  collectionButton: {fileID: 703912236}
   backgroundMusic: {fileID: 317145614}
 --- !u!1001 &1325293340
 PrefabInstance:
@@ -2118,7 +2216,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8119452335824762538, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1970503423}
   m_SourcePrefab: {fileID: 100100000, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
 --- !u!224 &1325293341 stripped
 RectTransform:
@@ -2159,7 +2260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1815797185773725938, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4279584184
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3130867005337240098, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
       propertyPath: m_Name
@@ -2320,7 +2421,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8119452335824762538, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1934996571}
   m_SourcePrefab: {fileID: 100100000, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
 --- !u!1 &1471187744
 GameObject:
@@ -2493,6 +2597,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5578027150497604848, guid: fa6f5431fb7664093b1e303bb9c5d666, type: 3}
+      propertyPath: m_Name
+      value: CloseButton
+      objectReference: {fileID: 0}
     - target: {fileID: 7311872961630979254, guid: fa6f5431fb7664093b1e303bb9c5d666, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -2501,6 +2609,14 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 8102989404629245334, guid: fa6f5431fb7664093b1e303bb9c5d666, type: 3}
+      propertyPath: titlePanel
+      value: 
+      objectReference: {fileID: 1853288571}
+    - target: {fileID: 8102989404629245334, guid: fa6f5431fb7664093b1e303bb9c5d666, type: 3}
+      propertyPath: closeButton
+      value: 
+      objectReference: {fileID: 348879526}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2510,6 +2626,11 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1564532040040803980, guid: fa6f5431fb7664093b1e303bb9c5d666, type: 3}
   m_PrefabInstance: {fileID: 1641448627}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1697670298 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8119452335824762538, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
+  m_PrefabInstance: {fileID: 1149616458}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1730523140
 GameObject:
@@ -3150,11 +3271,58 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 8119765568378465209, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
   m_PrefabInstance: {fileID: 1383385348}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1934996571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934996564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21c0cb4e6562d47458f79f38ad9cc783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuButtonColor
+  buttonText: {fileID: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!224 &1955967778 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3901351049596838470, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
   m_PrefabInstance: {fileID: 1149616458}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1955967784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697670298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21c0cb4e6562d47458f79f38ad9cc783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuButtonColor
+  buttonText: {fileID: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1970503417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8119452335824762538, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
+  m_PrefabInstance: {fileID: 1325293340}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1970503423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970503417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21c0cb4e6562d47458f79f38ad9cc783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuButtonColor
+  buttonText: {fileID: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &7076399331429577459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3270,7 +3438,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8119452335824762538, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 932094472}
   m_SourcePrefab: {fileID: 100100000, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
