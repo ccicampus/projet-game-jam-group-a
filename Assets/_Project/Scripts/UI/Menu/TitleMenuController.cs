@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class TitleMenuController : MonoBehaviour
 {
+    public GameObject titlePanel;
+    public GameObject optionsPanel;
+
     public void PlayGame()
     {
         SceneManager.LoadScene("Main");
@@ -15,9 +18,16 @@ public class TitleMenuController : MonoBehaviour
         SceneManager.LoadScene("Main");
     }
 
-    public void ShowOptions()
+    public void OpenOptions()
     {
-        Debug.Log("Options clicked");
+        titlePanel.SetActive(false);
+        optionsPanel.SetActive(true);
+    }
+
+    public void CloseOptions()
+    {
+        optionsPanel.SetActive(false);
+        titlePanel.SetActive(true);
     }
 
     public void QuitGame()
