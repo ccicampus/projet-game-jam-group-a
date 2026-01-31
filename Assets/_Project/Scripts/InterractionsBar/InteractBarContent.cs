@@ -1,13 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InteractBarContent : MonoBehaviour
 {
     private const int minNotches = 0;
     private const int maxNotches = 5;
     private int count;
-
-    [SerializeField] private Image interactionBarContent;
 
     [Header("Debug")]
     [SerializeField] protected bool debugMode = false;
@@ -40,7 +37,7 @@ public class InteractBarContent : MonoBehaviour
 
     private void Render(int current, int max)
     {
-        RectTransform rectTransform = this.interactionBarContent.GetComponent<RectTransform>();
+        RectTransform rectTransform = this.GetComponent<RectTransform>();
 
         if (this.debugMode)
             Debug.Log(rectTransform.rect.yMax);
