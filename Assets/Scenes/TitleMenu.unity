@@ -946,6 +946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d24a62f99a966419591390913a3bed28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorAnimationTest
+  animator: {fileID: 0}
 --- !u!1001 &886432400
 PrefabInstance:
   m_ObjectHideFlags: 0
