@@ -56,3 +56,4 @@ ExportedObj/
 # Rider
 .idea/
 *.sln.iml
+.vscode
