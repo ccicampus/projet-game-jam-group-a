@@ -11,7 +11,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 4928374052284678896}
-    m_Position: {x: 200, y: 0, z: 0}
+    m_Position: {x: 240, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2056202134467374207}
     m_Position: {x: 235, y: 65, z: 0}
@@ -80,7 +80,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DoorAnimation2
+  m_Name: DoorOpening
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []

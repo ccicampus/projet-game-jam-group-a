@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1055002779092610198}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.5291, y: 2.13, z: 3.3125}
+  m_LocalPosition: {x: -2.76, y: 2.92, z: 3.3125}
   m_LocalScale: {x: 0.6875, y: 0.6875, z: 0.6875}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -108,7 +108,7 @@ MonoBehaviour:
   speed: 2
   walkRight: 1
   startDelay: 4
-  walkDistance: 5
+  walkDistance: 8
 --- !u!95 &8355444464780632892
 Animator:
   serializedVersion: 7
@@ -159,8 +159,8 @@ Transform:
   m_GameObject: {fileID: 3386579729476694178}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.99893063, z: -0, w: 0.04623485}
-  m_LocalPosition: {x: 5, y: 2.13, z: 5.375}
-  m_LocalScale: {x: 0.68749994, y: 0.6875, z: 0.68749994}
+  m_LocalPosition: {x: 7.53, y: 2.73, z: 5.375}
+  m_LocalScale: {x: 0.4898437, y: 0.48984373, z: 0.4898437}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1897855089318278379}
@@ -239,7 +239,7 @@ MonoBehaviour:
   speed: 2
   walkRight: 0
   startDelay: 6
-  walkDistance: 5
+  walkDistance: 8
 --- !u!95 &8340166774121588715
 Animator:
   serializedVersion: 7
@@ -287,7 +287,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4806026006328333872}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -347,7 +347,7 @@ Transform:
   m_GameObject: {fileID: 7822258020276929455}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.95, y: 2.13, z: 2.625}
+  m_LocalPosition: {x: -5.26, y: 2.95, z: 2.625}
   m_LocalScale: {x: 0.6875, y: 0.6875, z: 0.6875}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -427,7 +427,7 @@ MonoBehaviour:
   speed: 2
   walkRight: 1
   startDelay: 4
-  walkDistance: 5
+  walkDistance: 8
 --- !u!95 &8346961173077529714
 Animator:
   serializedVersion: 7
