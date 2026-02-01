@@ -1,4 +1,8 @@
+
+#if UNITY_EDITOR
 using UnityEditor.Animations;
+#endif
+
 using UnityEngine;
 
 /// <summary>
@@ -15,7 +19,9 @@ public class VisitorData
     [SerializeField] private Sprite bustSprite;
     [SerializeField] private Sprite bustSprite2;
     [SerializeField] private float bustAlternateSpeed = 0.5f;
+#if UNITY_EDITOR
     [SerializeField] private AnimatorController bustAnimation;
+#endif
     [SerializeField] private VisitorType actualType;
 
     [Header("Scoring")]
@@ -46,7 +52,10 @@ public class VisitorData
     public Sprite BustSprite => bustSprite;
     public Sprite BustSprite2 => bustSprite2;
     public float BustAlternateSpeed => bustAlternateSpeed;
+#if UNITY_EDITOR
+
     public AnimatorController BustAnimation => bustAnimation;
+#endif
     public VisitorType ActualType => actualType;
     public int BaseScoreValue => baseScoreValue;
     public TextAsset DialoguesJson => dialoguesJson;

@@ -1,5 +1,7 @@
 using TMPro;
+#if UNITY_EDITOR
 using UnityEditor.Animations;
+#endif
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,7 +41,9 @@ public class Dialogs : MonoBehaviour
     private float timeout = 0.1f;
     private float maxTimeout = 0.1f;
     public Sprite grandmaSprite;
+#if UNITY_EDITOR
     public AnimatorController grandmaAnimator;
+#endif
     private bool answering = false;
     private int answer_choice = 0;
     public bool end = false;
@@ -134,6 +138,8 @@ public class Dialogs : MonoBehaviour
 
     void handleAnswering()
     {
+#if UNITY_EDITOR
+
         if (answering)
         {
             Image image = portrait.GetComponent<Image>();
@@ -153,6 +159,7 @@ public class Dialogs : MonoBehaviour
             Animator animator = portrait.GetComponent<Animator>();
             animator.runtimeAnimatorController = visitorData.BustAnimation;
         }
+#endif
     }
 
     void updateTimeout()
