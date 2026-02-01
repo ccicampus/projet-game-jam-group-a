@@ -78,7 +78,9 @@ public class GameManager : MonoBehaviour
                     Image portraitSprite = dialogScript.portrait.GetComponent<Image>();
                     portraitSprite.sprite = visitor.GetVisitorData().BustSprite;
                     Animator portraitAnimator = dialogScript.portrait.GetComponent<Animator>();
+#if UNITY_EDITOR
                     portraitAnimator.runtimeAnimatorController = visitor.GetVisitorData().BustAnimation;
+#endif
                 }
             }
 
