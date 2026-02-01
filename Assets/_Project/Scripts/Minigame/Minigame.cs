@@ -131,6 +131,7 @@ public class Minigame : MonoBehaviour
                 end = true;
                 VisitorSpawner.Instance.GetCurrentVisitor().Judge(VisitorType.Monster);
                 doorAnimator.SetTrigger("CloseDoor");
+                Destroy(VisitorSpawner.Instance.GetCurrentVisitor());
                 SceneTransitionManager.Instance.LoadScene(1);
                 gameObject.SetActive(false);
             }

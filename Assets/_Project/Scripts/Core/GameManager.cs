@@ -77,7 +77,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         findReferences();
-        Debug.Log(spawner.GetCurrentVisitor());
         if (judged >= numberOfVisitors && spawner.GetCurrentVisitor() == false)
         {
             endgame = true;
@@ -348,7 +347,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void ResetManager()
+    public void ResetManager()
     {
         fight = false;
         guessing_timer = max_guessing_timer;

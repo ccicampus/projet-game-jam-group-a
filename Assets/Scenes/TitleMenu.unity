@@ -172,7 +172,7 @@ MonoBehaviour:
   dialogScript: {fileID: 0}
   openingDoor: 0
   spawner: {fileID: 0}
-  numberOfVisitors: 1
+  numberOfVisitors: 3
   judged: 0
   guessing_timer: 3
   max_guessing_timer: 3
