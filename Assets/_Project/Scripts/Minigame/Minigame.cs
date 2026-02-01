@@ -15,17 +15,25 @@ public class Minigame : MonoBehaviour
     public GameObject versusBackground;
     public GameObject versusGrandma;
     public GameObject versusMonster;
-    public Image background;
+    public GameObject background;
     private float horizontalInput;
     private bool right = true;
     private bool tutorial = true;
+    private SpriteRenderer sprite;
+    private bool end = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        background.sprite = tutorialImage;
+        Image versusMonsterImage = versusMonster.GetComponent<Image>();
+        versusMonsterImage.sprite = VisitorSpawner.Instance.GetCurrentVisitor().GetVisitorData().UnmaskSprite;
+        VisitorSpawner.Instance.GetCurrentVisitor().Reveal();
+
+        Image backgroundImage = background.GetComponent<Image>();
+        backgroundImage.sprite = tutorialImage;
         hpText.text = "";
         timerText.text = "";
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -34,6 +42,10 @@ public class Minigame : MonoBehaviour
         if (introductionTimeout > 0)
         {
             introductionTimeout -= Time.deltaTime;
+        }
+        else if (end)
+        {
+            return;
         }
         else
         {
@@ -60,11 +72,11 @@ public class Minigame : MonoBehaviour
     {
         if (right)
         {
-            background.sprite = imageState0;
+            sprite.sprite = imageState0;
         }
         else
         {
-            background.sprite = imageState1;
+            sprite.sprite = imageState1;
         }
     }
 
@@ -74,24 +86,26 @@ public class Minigame : MonoBehaviour
         {
             tutorial = false;
             hpText.text = totalHits.ToString();
+            background.SetActive(false);
         }
     }
 
     void processHit()
     {
         horizontalInput = InputManager.Instance.MoveInput.x;
+        Visitor visitor = VisitorSpawner.Instance.GetCurrentVisitor();
 
-        if (right && horizontalInput == 1)
+        if (!right && horizontalInput == 1)
         {
             right = !right;
-            totalHits -= 1;
-            hpText.text = totalHits.ToString();
+            visitor.sprite.sprite = visitor.GetVisitorData().UnmaskSprite;
         }
-        else if (!right && horizontalInput == -1)
+        else if (right && horizontalInput == -1)
         {
             right = !right;
             totalHits -= 1;
             hpText.text = totalHits.ToString();
+            visitor.sprite.sprite = visitor.GetVisitorData().BoinkSprite;
         }
     }
 
@@ -104,12 +118,17 @@ public class Minigame : MonoBehaviour
         if (timeout < 0 && totalHits > 0)
         {
             hpText.text = "dead";
+            end = true;
+            SceneTransitionManager.Instance.LoadScene(0);
         }
         else
         {
             if (totalHits <= 0)
             {
                 hpText.text = "win";
+                end = true;
+                VisitorSpawner.Instance.GetCurrentVisitor().Judge(VisitorType.Monster);
+                SceneTransitionManager.Instance.LoadScene(1);
             }
             else
             {

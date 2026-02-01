@@ -11,7 +11,7 @@ public class SceneTransitionManager : MonoBehaviour
 
     [Header("Transition Settings")]
     [SerializeField] private float transitionDuration = 1f;
-    [SerializeField] private bool useLoadingScreen = false;
+    // [SerializeField] private bool useLoadingScreen = false;
 
     private bool isTransitioning = false;
 

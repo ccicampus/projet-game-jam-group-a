@@ -91,6 +91,15 @@ public class VisitorSpawner : MonoBehaviour
         }
 
         // Instantiate at spawn point
+        if (spawnPoint == null)
+        {
+            GameObject references = GameObject.Find("References");
+            if (references)
+            {
+                References refs = references.GetComponent<References>();
+                spawnPoint = refs.spawnPoint;
+            }
+        }
         Vector3 spawnPos = spawnPoint != null ? spawnPoint.position : Vector3.zero;
         GameObject visitorGO = Instantiate(visitorPrefab, spawnPos, Quaternion.identity);
 

@@ -7,6 +7,10 @@ using UnityEngine.Events;
 /// </summary>
 public class Visitor : MonoBehaviour
 {
+    // Singleton
+    public static Visitor Instance { get; private set; }
+
+
     [Header("Configuration")]
     [SerializeField] private VisitorData visitorData;
 
@@ -22,6 +26,25 @@ public class Visitor : MonoBehaviour
     private bool hasBeenJudged = false;
     private bool wasCorrectlyIdentified = false;
 
+    public SpriteRenderer sprite;
+
+    private void Awake()
+    {
+        // Singleton pattern with proper cleanup
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+
+            if (debugMode)
+                Debug.Log("GameManager initialized");
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Start()
     {
         if (visitorData == null)
@@ -29,6 +52,8 @@ public class Visitor : MonoBehaviour
             Debug.LogError("VisitorData is null! Assign in Inspector.");
             return;
         }
+        sprite = GetComponent<SpriteRenderer>();
+        sprite.sprite = visitorData.MaskSprite;
     }
 
     /// <summary>
@@ -97,6 +122,11 @@ public class Visitor : MonoBehaviour
         if (debugMode)
             Debug.Log($"Revealing {visitorData.VisitorName} as {visitorData.ActualType}");
 
+        if (sprite)
+        {
+            sprite.sprite = visitorData.UnmaskSprite;
+        }
+
         // Play reveal sound
         if (visitorData.RevealSound != null && AudioManager.Instance != null)
         {
@@ -121,7 +151,7 @@ public class Visitor : MonoBehaviour
             Debug.Log($"Dismissing {visitorData.VisitorName}");
 
         OnVisitorDismissed?.Invoke();
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject, 0.5f);
     }
 
     /// <summary>
@@ -167,6 +197,12 @@ public class Visitor : MonoBehaviour
         OnVisitorAppear?.RemoveAllListeners();
         OnVisitorRevealed?.RemoveAllListeners();
         OnVisitorDismissed?.RemoveAllListeners();
+
+        // Clean up singleton reference
+        if (Instance == this)
+        {
+            Instance = null;
+        }
     }
 
     // Properties

@@ -24,6 +24,7 @@ public class Dialogues
 public class Dialogs : MonoBehaviour
 {
     public GameObject dialogPanel;
+    public GameObject portrait;
     public TextMeshProUGUI dialogueTextObject;
     public TextMeshProUGUI optionTextObject1;
     public TextMeshProUGUI optionTextObject2;
@@ -33,8 +34,8 @@ public class Dialogs : MonoBehaviour
     private Dialogues dialoguesInJson;
     private int step = -1;
     private bool inTimeout = false;
-    private float timeout = 0.5f;
-    private float maxTimeout = 0.5f;
+    private float timeout = 0.1f;
+    private float maxTimeout = 0.1f;
     public bool end = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
