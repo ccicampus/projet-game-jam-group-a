@@ -239,8 +239,11 @@ public class GameManager : MonoBehaviour
         }
         else if (guessing_timer < 0 && visitor.GetVisitorData().ActualType == VisitorType.Kid)
         {
-            visitor.Judge(VisitorType.Monster);
-            doorAnimator.SetTrigger("CloseDoor");
+            if (visitor.HasBeenJudged == false)
+            {
+                visitor.Judge(VisitorType.Monster);
+                doorAnimator.SetTrigger("CloseDoor");
+            }
         }
     }
 
@@ -248,7 +251,7 @@ public class GameManager : MonoBehaviour
     {
         if (treatsButton && passButton)
         {
-            if (dialogScript.end)
+            if (dialogScript.end && VisitorSpawner.Instance.GetCurrentVisitor().HasBeenJudged == false)
             {
                 if (treatsButton.gameObject.activeSelf == false || passButton.gameObject.activeSelf == false)
                 {
@@ -271,8 +274,12 @@ public class GameManager : MonoBehaviour
     {
         if (dialogScript.end && guessing_timer > 0)
         {
-            VisitorSpawner.Instance.GetCurrentVisitor().Judge(VisitorType.Kid);
-            doorAnimator.SetTrigger("CloseDoor");
+            Visitor visitor = VisitorSpawner.Instance.GetCurrentVisitor();
+            if (visitor.HasBeenJudged == false)
+            {
+                visitor.Judge(VisitorType.Kid);
+                doorAnimator.SetTrigger("CloseDoor");
+            }
         }
     }
 
@@ -281,14 +288,17 @@ public class GameManager : MonoBehaviour
         if (dialogScript.end && guessing_timer > 0)
         {
             Visitor visitor = VisitorSpawner.Instance.GetCurrentVisitor();
-            visitor.Judge(VisitorType.Monster);
-            if (visitor.GetVisitorData().ActualType == VisitorType.Monster)
+            if (visitor.HasBeenJudged == false)
             {
-                fight = true;
-            }
-            else
-            {
-                doorAnimator.SetTrigger("CloseDoor");
+                visitor.Judge(VisitorType.Monster);
+                if (visitor.GetVisitorData().ActualType == VisitorType.Monster)
+                {
+                    fight = true;
+                }
+                else
+                {
+                    doorAnimator.SetTrigger("CloseDoor");
+                }
             }
         }
     }
