@@ -26,7 +26,7 @@ public class Visitor : MonoBehaviour
     private bool hasBeenJudged = false;
     private bool wasCorrectlyIdentified = false;
 
-    private SpriteRenderer sprite;
+    public SpriteRenderer sprite;
 
     private void Awake()
     {
@@ -121,6 +121,11 @@ public class Visitor : MonoBehaviour
     {
         if (debugMode)
             Debug.Log($"Revealing {visitorData.VisitorName} as {visitorData.ActualType}");
+
+        if (sprite)
+        {
+            sprite.sprite = visitorData.UnmaskSprite;
+        }
 
         // Play reveal sound
         if (visitorData.RevealSound != null && AudioManager.Instance != null)

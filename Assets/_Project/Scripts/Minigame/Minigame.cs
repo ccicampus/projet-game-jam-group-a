@@ -27,6 +27,7 @@ public class Minigame : MonoBehaviour
     {
         Image versusMonsterImage = versusMonster.GetComponent<Image>();
         versusMonsterImage.sprite = VisitorSpawner.Instance.GetCurrentVisitor().GetVisitorData().UnmaskSprite;
+        VisitorSpawner.Instance.GetCurrentVisitor().Reveal();
 
         Image backgroundImage = background.GetComponent<Image>();
         backgroundImage.sprite = tutorialImage;
@@ -92,16 +93,19 @@ public class Minigame : MonoBehaviour
     void processHit()
     {
         horizontalInput = InputManager.Instance.MoveInput.x;
+        Visitor visitor = VisitorSpawner.Instance.GetCurrentVisitor();
 
         if (!right && horizontalInput == 1)
         {
             right = !right;
+            visitor.sprite.sprite = visitor.GetVisitorData().UnmaskSprite;
         }
         else if (right && horizontalInput == -1)
         {
             right = !right;
             totalHits -= 1;
             hpText.text = totalHits.ToString();
+            visitor.sprite.sprite = visitor.GetVisitorData().BoinkSprite;
         }
     }
 

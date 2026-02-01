@@ -1326,6 +1326,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1220184412}
     - target: {fileID: 5850042242895548941, guid: 31463c5b28df38146a812ef36f56d5aa, type: 3}
+      propertyPath: tutorialVisitorPrefab
+      value: 
+      objectReference: {fileID: 8263572874456561533, guid: c070120eb73b2ea4cb077e0ce884bd06, type: 3}
+    - target: {fileID: 5850042242895548941, guid: 31463c5b28df38146a812ef36f56d5aa, type: 3}
       propertyPath: visitorPrefabs.Array.size
       value: 3
       objectReference: {fileID: 0}
