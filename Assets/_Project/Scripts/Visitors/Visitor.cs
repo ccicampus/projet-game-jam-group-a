@@ -105,6 +105,7 @@ public class Visitor : MonoBehaviour
         // Award/deduct score
         if (GameManager.Instance != null)
         {
+            GameManager.Instance.judged += 1;
             if (scoreAwarded > 0)
                 GameManager.Instance.AddScore(scoreAwarded);
             else if (scoreAwarded < 0)

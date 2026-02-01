@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Loop")]
     public VisitorSpawner spawner;
+    public int numberOfVisitors = 5;
+    public int judged = 0;
+    private bool endgame = false;
 
     [Header("Guessing")]
     public float guessing_timer = 3f;
@@ -44,7 +47,7 @@ public class GameManager : MonoBehaviour
     private Button treatsButton;
     private Button passButton;
 
-    [Header("Guessing")]
+    [Header("Fight")]
     private bool fight = false;
 
 
@@ -73,7 +76,14 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         findReferences();
-        if (doorAnimator != null && spawner != null)
+        if (judged >= numberOfVisitors && spawner.GetCurrentVisitor() == false)
+        {
+            endgame = true;
+            doorAnimator.ResetTrigger("OpenDoor");
+            // TRIGGER END SCENE
+            HandleEndGame();
+        }
+        else if (doorAnimator != null && spawner != null && endgame == false)
         {
             AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
             if (spawner.GetCurrentVisitor() == null || spawner.GetCurrentVisitor().HasBeenJudged)
@@ -244,6 +254,17 @@ public class GameManager : MonoBehaviour
                 visitor.Judge(VisitorType.Monster);
                 doorAnimator.SetTrigger("CloseDoor");
             }
+        }
+    }
+
+    void HandleEndGame()
+    {
+        Debug.Log("END GAME");
+        AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
+        if (stateInfo.IsName("IdleClosed") && !doorAnimator.IsInTransition(0))
+        {
+            Debug.Log("START APOCALYPSE");
+            // SceneTransitionManager.Instance.LoadScene(3); TODO add end scene to project
         }
     }
 
