@@ -172,4 +172,17 @@ public class Dialogs : MonoBehaviour
     {
         return dialoguesInJson.dialogues[step].choices.GetLength(0);
     }
+
+    public void ResetDialogues()
+    {
+        step = -1;
+        inTimeout = false;
+        answering = false;
+        answer_choice = 0;
+        end = false;
+        dialogPanel.SetActive(false);
+        optionTextList = new TextMeshProUGUI[] { optionTextObject1, optionTextObject2, optionTextObject3 };
+        dialoguesInJson = JsonUtility.FromJson<Dialogues>(jsonFile.text);
+        getNextDialog();
+    }
 }

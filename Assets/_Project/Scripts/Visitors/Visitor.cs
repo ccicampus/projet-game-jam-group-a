@@ -85,7 +85,7 @@ public class Visitor : MonoBehaviour
         }
 
         hasBeenJudged = true;
-        wasCorrectlyIdentified = (playerGuess == visitorData.ActualType);
+        wasCorrectlyIdentified = playerGuess == visitorData.ActualType;
 
         int scoreAwarded = 0;
 

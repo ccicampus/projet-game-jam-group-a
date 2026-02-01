@@ -1139,6 +1139,14 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3931330081783813888, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806578102189529520, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5210132755700852425, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
       propertyPath: m_Name
       value: DoorAnimation
@@ -1189,6 +1197,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5500319026152233395, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
       propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880950175926506873, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962994965011022992, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

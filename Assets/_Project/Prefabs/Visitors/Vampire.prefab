@@ -54,7 +54,7 @@ MonoBehaviour:
     bustSprite2: {fileID: 21300000, guid: 8a1cc907bbe254829bdf6cb0199f11e6, type: 3}
     bustAlternateSpeed: 0.5
     bustAnimation: {fileID: 9100000, guid: e4c7958478ec5e64a84156214152662b, type: 2}
-    actualType: 1
+    actualType: 0
     baseScoreValue: 100
     difficultyLevel: 1
     dialoguesJson: {fileID: 4900000, guid: 99ae5e28c4cac5a4282ef7cc1ea4a757, type: 3}
@@ -63,7 +63,7 @@ MonoBehaviour:
     accentColor: {r: 1, g: 1, b: 1, a: 1}
     greetingSound: {fileID: 0}
     revealSound: {fileID: 0}
-    boinkSprite: {fileID: 21300000, guid: 5d87df85ec1a042d3a4159a9dabed46d, type: 3}
+    boinkSprite: {fileID: 8991832224384020702, guid: 9f2f3c196d85f724980fddf25cdda508, type: 3}
     boinkSound: {fileID: 0}
     boinkDuration: 0.3
   debugMode: 0
@@ -76,6 +76,7 @@ MonoBehaviour:
   OnVisitorDismissed:
     m_PersistentCalls:
       m_Calls: []
+  sprite: {fileID: 0}
 --- !u!212 &8120942347255633428
 SpriteRenderer:
   serializedVersion: 2
