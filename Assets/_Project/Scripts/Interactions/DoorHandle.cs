@@ -13,13 +13,18 @@ public class DoorHandle : MonoBehaviour
     [Header("UI Button")]
     [SerializeField] private Button clickButton;
 
+    [Header("Visual Effects")]
+    [SerializeField] private Sprite rippleCircle;
+    [SerializeField] private float rippleDuration = 0.5f;
+
     [Header("Audio")]
     [SerializeField] private AudioClip doorOpenSound;
 
     [Header("Debug")]
     [SerializeField] private bool debugMode = false;
 
-    private bool isDoorOpen = false;
+    private bool lastButtonState = false;
+
 
     private void Start()
     {
@@ -29,14 +34,14 @@ public class DoorHandle : MonoBehaviour
             return;
         }
 
-        // Hide button initially (wait for door to close)
-        clickButton.gameObject.SetActive(false);
+        // Show button initially (door is closed)
+        clickButton.gameObject.SetActive(true);
 
         // Hook button click
         clickButton.onClick.AddListener(OnHandleClicked);
 
         if (debugMode)
-            Debug.Log("Door handle initialized - button hidden until door closes");
+            Debug.Log("Door handle ready - button visible");
     }
 
     /// <summary>
@@ -44,11 +49,6 @@ public class DoorHandle : MonoBehaviour
     /// </summary>
     private void OnHandleClicked()
     {
-        if (isDoorOpen)
-            return;
-
-        isDoorOpen = true;
-
         if (debugMode)
             Debug.Log("Door handle clicked - opening door!");
 
@@ -73,7 +73,6 @@ public class DoorHandle : MonoBehaviour
     /// </summary>
     public void ResetDoor()
     {
-        isDoorOpen = false;
         clickButton.gameObject.SetActive(true);
 
         if (debugMode)
@@ -84,5 +83,29 @@ public class DoorHandle : MonoBehaviour
     {
         if (clickButton != null)
             clickButton.onClick.RemoveListener(OnHandleClicked);
+    }
+
+    void Update()
+    {
+        AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
+
+        bool shouldShowButton = stateInfo.IsName("IdleClosed") && !doorAnimator.IsInTransition(0);
+
+        if (shouldShowButton && !lastButtonState)
+        {
+            // Button just became visible - play ripple effect
+            clickButton.gameObject.SetActive(true);
+            if (rippleCircle != null)
+            {
+                RippleEffect.PlayRipple(clickButton.transform.position, rippleCircle, rippleDuration);
+            }
+            lastButtonState = true;
+        }
+        else if (!shouldShowButton && lastButtonState)
+        {
+            // Button just became hidden
+            clickButton.gameObject.SetActive(false);
+            lastButtonState = false;
+        }
     }
 }
