@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Central game manager handling game state and core systems
@@ -26,6 +27,9 @@ public class GameManager : MonoBehaviour
     public Animator doorAnimator;
     public GameObject dialog;
     public Dialogs dialogScript;
+
+    [Header("Game Loop")]
+    public VisitorSpawner spawner;
 
     [Header("Guessing")]
     public float guessing_timer = 3f;
@@ -61,30 +65,37 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (doorAnimator != null)
+        findReferences();
+        if (doorAnimator != null && spawner != null)
         {
+            if (spawner.GetCurrentVisitor() == null || spawner.GetCurrentVisitor().HasBeenJudged)
+            {
+                spawner.SpawnNextVisitor();
+                doorAnimator.SetTrigger("OpenDoor");
+                if (dialogScript != null)
+                {
+                    Visitor visitor = spawner.GetCurrentVisitor();
+                    Image portraitSprite = dialogScript.portrait.GetComponent<Image>();
+                    portraitSprite.sprite = visitor.GetVisitorData().BustSprite;
+                    Animator portraitAnimator = dialogScript.portrait.GetComponent<Animator>();
+                    portraitAnimator.runtimeAnimatorController = visitor.GetVisitorData().BustAnimation;
+                }
+            }
+
             AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
-            float progress = stateInfo.normalizedTime;
-
-            // Debug.Log($"State: {stateInfo.fullPathHash}, Progress: {progress}");
-
             // When door reaches Fully Open, start the delay timer                                   
             if (stateInfo.IsName("FullyOpen") && !doorAnimator.IsInTransition(0))
             {
-                Debug.Log("✓ IN FULLY OPEN STATE");
                 if (!hasTriggeredDialogThisRound)
                 {
                     dialogDelayTimer += Time.deltaTime;
-                    Debug.Log($"Dialog delay: {dialogDelayTimer}/{DIALOG_DELAY}");
 
                     if (dialogDelayTimer >= DIALOG_DELAY)
                     {
-                        Debug.Log(">>> ACTIVATING DIALOG <<<");
                         if (dialog != null)
                             dialog.SetActive(true);
                         else
-                            Debug.LogError("Dialog GameObject is NULL!");
-                        hasTriggeredDialogThisRound = true;
+                            hasTriggeredDialogThisRound = true;
                     }
                 }
             }
@@ -207,6 +218,27 @@ public class GameManager : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
+    }
+
+    private void findReferences()
+    {
+        GameObject references = GameObject.Find("References");
+        if (references)
+        {
+            References refs = references.GetComponent<References>();
+            if (doorAnimator == null)
+            {
+                doorAnimator = refs.doorAnimator;
+            }
+            if (dialog == null)
+            {
+                dialog = refs.dialog;
+            }
+            if (dialogScript == null)
+            {
+                dialogScript = refs.dialogScript;
+            }
+        }
     }
 
     private void OnDestroy()

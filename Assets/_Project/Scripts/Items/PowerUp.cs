@@ -8,8 +8,8 @@ public class PowerUp : Item
     [Header("Power-Up Settings")]
     [SerializeField] private PowerUpType type = PowerUpType.Health;
     [SerializeField] private int amount = 20;
-    [SerializeField] private float duration = 0f; // 0 = permanent
-    
+    // [SerializeField] private float duration = 0f; // 0 = permanent
+
     public enum PowerUpType
     {
         Health,
@@ -18,7 +18,7 @@ public class PowerUp : Item
         Invincibility,
         DoubleJump
     }
-    
+
     protected override void OnCollected(GameObject collector)
     {
         switch (type)
@@ -40,7 +40,7 @@ public class PowerUp : Item
                 break;
         }
     }
-    
+
     private void ApplyHealthPowerUp(GameObject collector)
     {
         PlayerHealth health = collector.GetComponent<PlayerHealth>();
@@ -50,19 +50,19 @@ public class PowerUp : Item
             Debug.Log($"Healed {amount} health");
         }
     }
-    
+
     private void ApplySpeedPowerUp(GameObject collector)
     {
         // Implement speed boost
         Debug.Log("Speed boost applied");
     }
-    
+
     private void ApplyJumpPowerUp(GameObject collector)
     {
         // Implement jump boost
         Debug.Log("Jump boost applied");
     }
-    
+
     private void ApplyInvincibilityPowerUp(GameObject collector)
     {
         // Implement invincibility
