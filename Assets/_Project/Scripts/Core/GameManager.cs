@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public Animator doorAnimator;
     public GameObject dialog;
     public Dialogs dialogScript;
+    public bool openingDoor = false;
 
     [Header("Game Loop")]
     public VisitorSpawner spawner;
@@ -76,6 +77,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         findReferences();
+        Debug.Log(spawner.GetCurrentVisitor());
         if (judged >= numberOfVisitors && spawner.GetCurrentVisitor() == false)
         {
             endgame = true;
@@ -89,24 +91,42 @@ public class GameManager : MonoBehaviour
         else if (doorAnimator != null && spawner != null && endgame == false)
         {
             AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
-            if (spawner.GetCurrentVisitor() == null || spawner.GetCurrentVisitor().HasBeenJudged)
+
+            // if (spawner.GetCurrentVisitor() == null || spawner.GetCurrentVisitor().HasBeenJudged)
+            // {
+            //     if (stateInfo.IsName("IdleClosed") && !doorAnimator.IsInTransition(0))
+            //     {
+            //         spawner.SpawnNextVisitor();
+            //         doorAnimator.SetTrigger("OpenDoor");
+            //         if (dialogScript != null)
+            //         {
+            //             Visitor visitor = spawner.GetCurrentVisitor();
+            //             Image portraitSprite = dialogScript.portrait.GetComponent<Image>();
+            //             portraitSprite.sprite = visitor.GetVisitorData().BustSprite;
+            //             Animator portraitAnimator = dialogScript.portrait.GetComponent<Animator>();
+            //             portraitAnimator.runtimeAnimatorController = visitor.GetVisitorData().BustAnimation;
+            //             dialogScript.jsonFile = visitor.GetVisitorData().DialoguesJson;
+            //             dialogScript.ResetDialogues();
+            //         }
+            //     }
+            // }
+            if (openingDoor && judged < numberOfVisitors)
             {
-                if (stateInfo.IsName("IdleClosed") && !doorAnimator.IsInTransition(0))
+                openingDoor = false;
+                spawner.SpawnNextVisitor();
+                doorAnimator.SetTrigger("OpenDoor");
+                if (dialogScript != null)
                 {
-                    spawner.SpawnNextVisitor();
-                    doorAnimator.SetTrigger("OpenDoor");
-                    if (dialogScript != null)
-                    {
-                        Visitor visitor = spawner.GetCurrentVisitor();
-                        Image portraitSprite = dialogScript.portrait.GetComponent<Image>();
-                        portraitSprite.sprite = visitor.GetVisitorData().BustSprite;
-                        Animator portraitAnimator = dialogScript.portrait.GetComponent<Animator>();
-                        portraitAnimator.runtimeAnimatorController = visitor.GetVisitorData().BustAnimation;
-                        dialogScript.jsonFile = visitor.GetVisitorData().DialoguesJson;
-                        dialogScript.ResetDialogues();
-                    }
+                    Visitor visitor = spawner.GetCurrentVisitor();
+                    Image portraitSprite = dialogScript.portrait.GetComponent<Image>();
+                    portraitSprite.sprite = visitor.GetVisitorData().BustSprite;
+                    Animator portraitAnimator = dialogScript.portrait.GetComponent<Animator>();
+                    portraitAnimator.runtimeAnimatorController = visitor.GetVisitorData().BustAnimation;
+                    dialogScript.jsonFile = visitor.GetVisitorData().DialoguesJson;
+                    dialogScript.ResetDialogues();
                 }
             }
+
 
             // When door reaches Fully Open, start the delay timer                                   
             if (stateInfo.IsName("FullyOpen") && !doorAnimator.IsInTransition(0))
@@ -365,6 +385,10 @@ public class GameManager : MonoBehaviour
                 passButton = refs.passButton;
                 passButton.onClick.AddListener(ClickPass);
             }
+        }
+        if (spawner == null)
+        {
+            spawner = VisitorSpawner.Instance;
         }
     }
 

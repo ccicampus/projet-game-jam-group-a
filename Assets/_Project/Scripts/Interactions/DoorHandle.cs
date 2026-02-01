@@ -57,6 +57,7 @@ public class DoorHandle : MonoBehaviour
         if (doorAnimator != null)
         {
             doorAnimator.SetTrigger("OpenDoor");
+            GameManager.Instance.openingDoor = true;
         }
 
         StartCoroutine(PlaySoundWithDelay(1.5f));
@@ -116,7 +117,7 @@ public class DoorHandle : MonoBehaviour
 
         AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
 
-        bool isClosed = stateInfo.IsName("IdleClosed");
+        bool isClosed = stateInfo.IsName("IdleClosed") && !doorAnimator.IsInTransition(0);
 
         if (isClosed && !clickButton.gameObject.activeSelf)
         {

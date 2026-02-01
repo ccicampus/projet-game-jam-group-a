@@ -170,8 +170,12 @@ MonoBehaviour:
   doorAnimator: {fileID: 622474777}
   dialog: {fileID: 0}
   dialogScript: {fileID: 0}
+  openingDoor: 0
   spawner: {fileID: 0}
+  numberOfVisitors: 1
+  judged: 0
   guessing_timer: 3
+  max_guessing_timer: 3
 --- !u!114 &46007799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +192,63 @@ MonoBehaviour:
   OnCardCollected:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1001 &53142389
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 329627323881168120, guid: 31463c5b28df38146a812ef36f56d5aa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.04724
+      objectReference: {fileID: 0}
+    - target: {fileID: 329627323881168120, guid: 31463c5b28df38146a812ef36f56d5aa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.09449
+      objectReference: {fileID: 0}
+    - target: {fileID: 329627323881168120, guid: 31463c5b28df38146a812ef36f56d5aa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 329627323881168120, guid: 31463c5b28df38146a812ef36f56d5aa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 329627323881168120, guid: 31463c5b28df38146a812ef36f56d5aa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 329627323881168120, guid: 31463c5b28df38146a812ef36f56d5aa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 329627323881168120, guid: 31463c5b28df38146a812ef36f56d5aa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 329627323881168120, guid: 31463c5b28df38146a812ef36f56d5aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 329627323881168120, guid: 31463c5b28df38146a812ef36f56d5aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 329627323881168120, guid: 31463c5b28df38146a812ef36f56d5aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3283128690467555621, guid: 31463c5b28df38146a812ef36f56d5aa, type: 3}
+      propertyPath: m_Name
+      value: Spawner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 31463c5b28df38146a812ef36f56d5aa, type: 3}
 --- !u!1 &110200066 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8119452335824762538, guid: eeb7c20c7679444c297b61ceb84ed1ca, type: 3}
@@ -355,6 +416,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 962c9ec00c37846b8856e13d2cd7c354, type: 3}
+    - target: {fileID: 2493900760453377139, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ac608340bd88548c5b0aa235dbf00f16, type: 2}
     - target: {fileID: 5210132755700852425, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
       propertyPath: m_Name
       value: DoorAnimation
@@ -3771,3 +3836,4 @@ SceneRoots:
   - {fileID: 1905113280}
   - {fileID: 317145615}
   - {fileID: 252231430}
+  - {fileID: 53142389}

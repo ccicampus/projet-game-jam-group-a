@@ -36,7 +36,7 @@ public class TitleMenuController : MonoBehaviour
 
         yield return new WaitForSeconds(1.0f);
 
-        SceneTransitionManager.Instance.LoadScene("MainCopy");
+        SceneTransitionManager.Instance.LoadScene("Main");
     }
 
     IEnumerator FadeOutMusic(float duration)
