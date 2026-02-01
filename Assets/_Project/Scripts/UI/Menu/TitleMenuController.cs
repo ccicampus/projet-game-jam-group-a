@@ -19,30 +19,41 @@ public class TitleMenuController : MonoBehaviour
         {
             doorAnimator.SetTrigger("CloseDoor");
 
-            StartCoroutine(PlayMenuSoundsSequence(1.0f));
+            StartCoroutine(PlaySoundForClosingDoorWithDelay(1.0f));
         }
-        Invoke("HideMenu", 0.1f);
-
-        IEnumerator PlayMenuSoundsSequence(float delay)
-        {
-            yield return new WaitForSeconds(delay);
-
-            AudioSource[] sources = doorAnimator.GetComponents<AudioSource>();
-
-            if (sources.Length >= 2)
-            {
-                yield return new WaitForSeconds(0.2f);
-                sources[0].Play();
-
-                yield return new WaitForSeconds(3.0f);
-                sources[1].Play();
-            }
-        }
-
-        SaveSystem.Instance.LoadGame();
-        SceneTransitionManager.Instance.LoadScene("Main");
+        Invoke("HideMenu", 0.5f);
     }
-    void HideMenu() { titlePanel.SetActive(false); }
+
+    IEnumerator PlaySoundForClosingDoorWithDelay(float delay)
+    {
+        StartCoroutine(FadeOutMusic(1.5f));
+
+        yield return new WaitForSeconds(delay);
+
+        AudioSource doorSource = doorAnimator.GetComponent<AudioSource>();
+        if (doorSource != null)
+            doorSource.Play();
+
+        yield return new WaitForSeconds(1.0f);
+
+        SceneTransitionManager.Instance.LoadScene("MainCopy");
+    }
+
+    IEnumerator FadeOutMusic(float duration)
+    {
+        float startVolume = backgroundMusic.volume;
+        for (float t = 0; t < duration; t += Time.deltaTime)
+        {
+            backgroundMusic.volume = Mathf.Lerp(startVolume, 0, t / duration);
+            yield return null;
+        }
+        backgroundMusic.volume = 0;
+    }
+
+    void HideMenu()
+    {
+        titlePanel.SetActive(false);
+    }
 
     public void LoadGame()
     {

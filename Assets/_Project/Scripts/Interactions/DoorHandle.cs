@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,7 +25,7 @@ public class DoorHandle : MonoBehaviour
     [SerializeField] private bool debugMode = false;
 
     private bool lastButtonState = false;
-
+    private bool canShowButton = false;
 
     private void Start()
     {
@@ -34,14 +35,14 @@ public class DoorHandle : MonoBehaviour
             return;
         }
 
-        // Show button initially (door is closed)
-        clickButton.gameObject.SetActive(true);
+        canShowButton = false;
+        lastButtonState = false;
+        clickButton.gameObject.SetActive(false);
 
-        // Hook button click
         clickButton.onClick.AddListener(OnHandleClicked);
 
         if (debugMode)
-            Debug.Log("Door handle ready - button visible");
+            Debug.Log("Door handle initialisé - en attente de la sonnette");
     }
 
     /// <summary>
@@ -52,20 +53,28 @@ public class DoorHandle : MonoBehaviour
         if (debugMode)
             Debug.Log("Door handle clicked - opening door!");
 
-        // Play door open sound (if available)
-        if (doorOpenSound != null && AudioManager.Instance != null)
-        {
-            AudioManager.Instance.PlaySFX(doorOpenSound);
-        }
-
         // Trigger door open animation
         if (doorAnimator != null)
         {
             doorAnimator.SetTrigger("OpenDoor");
         }
 
+        StartCoroutine(PlaySoundWithDelay(1.5f));
+
         // Hide button after clicked
         clickButton.gameObject.SetActive(false);
+        canShowButton = false;
+    }
+
+    private IEnumerator PlaySoundWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        AudioSource source = GetComponent<AudioSource>();
+        if (source != null && doorOpenSound != null)
+        {
+            source.PlayOneShot(doorOpenSound);
+        }
     }
 
     /// <summary>
@@ -85,27 +94,38 @@ public class DoorHandle : MonoBehaviour
             clickButton.onClick.RemoveListener(OnHandleClicked);
     }
 
+    public void EnableInteraction()
+    {
+        canShowButton = true;
+
+        clickButton.gameObject.SetActive(true);
+        lastButtonState = true;
+
+        if (debugMode)
+            Debug.Log("Interaction activée après la sonnette !");
+    }
+
     void Update()
     {
+        // Si on n'a pas encore sonné, on ne touche à rien
+        if (!canShowButton)
+            return;
+
+        if (doorAnimator == null)
+            return;
+
         AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
 
-        bool shouldShowButton = stateInfo.IsName("IdleClosed") && !doorAnimator.IsInTransition(0);
+        bool isClosed = stateInfo.IsName("IdleClosed");
 
-        if (shouldShowButton && !lastButtonState)
+        if (isClosed && !clickButton.gameObject.activeSelf)
         {
-            // Button just became visible - play ripple effect
             clickButton.gameObject.SetActive(true);
-            if (rippleCircle != null)
-            {
-                RippleEffect.PlayRipple(clickButton.transform.position, rippleCircle, rippleDuration);
-            }
-            lastButtonState = true;
         }
-        else if (!shouldShowButton && lastButtonState)
+
+        else if (!isClosed && clickButton.gameObject.activeSelf)
         {
-            // Button just became hidden
             clickButton.gameObject.SetActive(false);
-            lastButtonState = false;
         }
     }
 }
