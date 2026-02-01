@@ -79,7 +79,10 @@ public class GameManager : MonoBehaviour
         if (judged >= numberOfVisitors && spawner.GetCurrentVisitor() == false)
         {
             endgame = true;
-            doorAnimator.ResetTrigger("OpenDoor");
+            if (doorAnimator != null)
+            {
+                doorAnimator.ResetTrigger("OpenDoor");
+            }
             // TRIGGER END SCENE
             HandleEndGame();
         }
@@ -259,12 +262,13 @@ public class GameManager : MonoBehaviour
 
     void HandleEndGame()
     {
-        Debug.Log("END GAME");
-        AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
-        if (stateInfo.IsName("IdleClosed") && !doorAnimator.IsInTransition(0))
+        if (doorAnimator != null)
         {
-            Debug.Log("START APOCALYPSE");
-            // SceneTransitionManager.Instance.LoadScene(3); TODO add end scene to project
+            AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
+            if (stateInfo.IsName("IdleClosed") && !doorAnimator.IsInTransition(0))
+            {
+                SceneTransitionManager.Instance.LoadScene(3);
+            }
         }
     }
 
