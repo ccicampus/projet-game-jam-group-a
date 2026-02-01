@@ -1,5 +1,7 @@
 using TMPro;
+using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Choices
@@ -36,6 +38,10 @@ public class Dialogs : MonoBehaviour
     private bool inTimeout = false;
     private float timeout = 0.1f;
     private float maxTimeout = 0.1f;
+    public Sprite grandmaSprite;
+    public AnimatorController grandmaAnimator;
+    private bool answering = false;
+    private int answer_choice = 0;
     public bool end = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -82,7 +88,7 @@ public class Dialogs : MonoBehaviour
             optionTextList[index].text = $"{index + 1}. {choice.answer}";
             index += 1;
         }
-        if (dialoguesInJson.dialogues[step].choices.GetLength(0) == 2)
+        if (getNumberOfChoices() == 2)
         {
             optionTextList[2].text = "";
         }
@@ -94,17 +100,58 @@ public class Dialogs : MonoBehaviour
         float horizontalInput = InputManager.Instance.MoveInput.x;
         bool up = InputManager.Instance.JumpPressed;
 
-        if (horizontalInput == -1)
+        if (answering)
         {
-            getNextDialog(0);
+            if (up)
+            {
+                answering = false;
+                handleAnswering();
+                getNextDialog(answer_choice);
+            }
         }
-        else if (up)
+        else
         {
-            getNextDialog(1);
+            if (horizontalInput == -1)
+            {
+                answering = true;
+                answer_choice = 0;
+                handleAnswering();
+            }
+            else if (horizontalInput == 1)
+            {
+                answering = true;
+                answer_choice = 1;
+                handleAnswering();
+            }
+            else if (up && getNumberOfChoices() == 3)
+            {
+                answering = true;
+                answer_choice = 2;
+                handleAnswering();
+            }
         }
-        else if (horizontalInput == 1)
+    }
+
+    void handleAnswering()
+    {
+        if (answering)
         {
-            getNextDialog(2);
+            Image image = portrait.GetComponent<Image>();
+            image.sprite = grandmaSprite;
+            Animator animator = portrait.GetComponent<Animator>();
+            animator.runtimeAnimatorController = grandmaAnimator;
+            dialogueTextObject.text = dialoguesInJson.dialogues[step].choices[answer_choice].answer;
+            optionTextObject1.text = "";
+            optionTextObject2.text = "";
+            optionTextObject3.text = "";
+        }
+        else
+        {
+            VisitorData visitorData = VisitorSpawner.Instance.GetCurrentVisitor().GetVisitorData();
+            Image image = portrait.GetComponent<Image>();
+            image.sprite = visitorData.BustSprite;
+            Animator animator = portrait.GetComponent<Animator>();
+            animator.runtimeAnimatorController = visitorData.BustAnimation;
         }
     }
 
@@ -119,5 +166,10 @@ public class Dialogs : MonoBehaviour
         {
             timeout -= Time.deltaTime;
         }
+    }
+
+    int getNumberOfChoices()
+    {
+        return dialoguesInJson.dialogues[step].choices.GetLength(0);
     }
 }
