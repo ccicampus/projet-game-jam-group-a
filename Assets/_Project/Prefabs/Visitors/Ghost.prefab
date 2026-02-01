@@ -53,7 +53,7 @@ MonoBehaviour:
     bustSprite: {fileID: 21300000, guid: 352b4157439c948ec9c671dccc1261cc, type: 3}
     bustSprite2: {fileID: 21300000, guid: 219da0f23b2d842958c204b4e3236f42, type: 3}
     bustAlternateSpeed: 0.5
-    bustAnimation: {fileID: 9100000, guid: 6832a5bcd76b4924e85cc1ce9e9ae7e9, type: 2}
+    bustAnimation: {fileID: 9100000, guid: 409f6130a27ba8145aaa3e2c8b2a86b3, type: 2}
     actualType: 1
     baseScoreValue: 100
     difficultyLevel: 1
@@ -76,6 +76,7 @@ MonoBehaviour:
   OnVisitorDismissed:
     m_PersistentCalls:
       m_Calls: []
+  sprite: {fileID: 0}
 --- !u!212 &2600694031611147852
 SpriteRenderer:
   serializedVersion: 2
