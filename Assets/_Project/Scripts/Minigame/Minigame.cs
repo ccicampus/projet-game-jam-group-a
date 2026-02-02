@@ -129,6 +129,7 @@ public class Minigame : MonoBehaviour
             {
                 hpText.text = "win";
                 end = true;
+                GameManager.Instance.fight = false;
                 VisitorSpawner.Instance.GetCurrentVisitor().Judge(VisitorType.Monster);
                 doorAnimator.SetTrigger("CloseDoor");
                 Destroy(VisitorSpawner.Instance.GetCurrentVisitor().gameObject);

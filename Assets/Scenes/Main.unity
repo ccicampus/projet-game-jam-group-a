@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &16263017 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3393302130871972438, guid: f7c0eaa363a44d0418c652027a14ea4f, type: 3}
+  m_PrefabInstance: {fileID: 458577528}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7925cacd97f4547b112e142a75df9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainSceneInitializer
 --- !u!1 &139615909
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +236,10 @@ PrefabInstance:
     - target: {fileID: 2400812565442356009, guid: 061150923edb4448a8dbb0a6be958dc8, type: 3}
       propertyPath: max_guessing_timer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400812565442356009, guid: 061150923edb4448a8dbb0a6be958dc8, type: 3}
+      propertyPath: mainSceneInitializer
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4259522164375343783, guid: 061150923edb4448a8dbb0a6be958dc8, type: 3}
       propertyPath: m_Name
@@ -1063,7 +1078,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1130937501}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4331bacfe1dc4aafb95e94043762755, type: 3}
   m_Name: 
@@ -1688,6 +1703,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 1220184412}
   treatsButton: {fileID: 472234337}
   passButton: {fileID: 1356669844}
+  mainSceneInitializer: {fileID: 16263017}
 --- !u!4 &1861960618
 Transform:
   m_ObjectHideFlags: 0
@@ -2008,6 +2024,10 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1220184412}
+    - target: {fileID: 5850042242895548941, guid: 31463c5b28df38146a812ef36f56d5aa, type: 3}
+      propertyPath: tutorialVisitorPrefab
+      value: 
+      objectReference: {fileID: 8263572874456561533, guid: c070120eb73b2ea4cb077e0ce884bd06, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

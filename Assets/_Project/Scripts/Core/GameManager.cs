@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     public int numberOfVisitors = 5;
     public int judged = 0;
     private bool endgame = false;
+    public MainSceneInitializer mainSceneInitializer;
+    private bool haveReset = false;
 
     [Header("Guessing")]
     public float guessing_timer = 3f;
@@ -49,7 +51,7 @@ public class GameManager : MonoBehaviour
     private Button passButton;
 
     [Header("Fight")]
-    private bool fight = false;
+    public bool fight = false;
 
 
     private void Awake()
@@ -96,8 +98,6 @@ public class GameManager : MonoBehaviour
             if (openingDoor && judged < numberOfVisitors)
             {
                 openingDoor = false;
-                spawner.SpawnNextVisitor();
-                doorAnimator.SetTrigger("OpenDoor");
                 if (dialogScript != null)
                 {
                     Visitor visitor = spawner.GetCurrentVisitor();
@@ -114,6 +114,7 @@ public class GameManager : MonoBehaviour
             // When door reaches Fully Open, start the delay timer                                   
             if (stateInfo.IsName("FullyOpen") && !doorAnimator.IsInTransition(0))
             {
+                haveReset = false;
                 if (!hasTriggeredDialogThisRound)
                 {
                     dialogDelayTimer += Time.deltaTime;
@@ -128,9 +129,8 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            if (stateInfo.IsName("SlamDoor"))
+            if (stateInfo.IsName("IdleClosed") && !haveReset && !fight)
             {
-                Debug.Log("COME ON AND SLAM");
                 ResetManager();
             }
 
@@ -335,10 +335,19 @@ public class GameManager : MonoBehaviour
 
     public void ResetManager()
     {
+        haveReset = true;
         fight = false;
         guessing_timer = max_guessing_timer;
         hasTriggeredDialogThisRound = false;
         dialogDelayTimer = 0f;
+        if (mainSceneInitializer)
+        {
+            mainSceneInitializer.WaitForVisitor();
+        }
+        if (VisitorSpawner.Instance.GetCurrentVisitor())
+        {
+            Destroy(VisitorSpawner.Instance.GetCurrentVisitor().gameObject);
+        }
     }
 
     private void findReferences()
@@ -386,6 +395,14 @@ public class GameManager : MonoBehaviour
                 {
                     passButton = refs.passButton;
                     passButton.onClick.AddListener(ClickPass);
+                }
+            }
+
+            if (mainSceneInitializer == null)
+            {
+                if (refs.mainSceneInitializer)
+                {
+                    mainSceneInitializer = refs.mainSceneInitializer;
                 }
             }
         }

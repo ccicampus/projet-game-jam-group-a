@@ -10,4 +10,5 @@ public class References : MonoBehaviour
     public Transform spawnPoint;
     public Button treatsButton;
     public Button passButton;
+    public MainSceneInitializer mainSceneInitializer;
 }
