@@ -45,6 +45,26 @@ public class MainSceneInitializer : MonoBehaviour
         }
     }
 
+    IEnumerator NewVisitor()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        if (doorBellSound != null)
+            doorBellSound.Play();
+
+        yield return new WaitForSeconds(2.0f);
+
+        if (doorHandleScript != null)
+        {
+            doorHandleScript.EnableInteraction();
+        }
+    }
+
+    public void WaitForVisitor()
+    {
+        StartCoroutine(NewVisitor());
+    }
+
     void TriggerButton()
     {
         if (doorHandleScript != null)

@@ -58,6 +58,7 @@ public class DoorHandle : MonoBehaviour
         {
             doorAnimator.SetTrigger("OpenDoor");
             GameManager.Instance.openingDoor = true;
+            VisitorSpawner.Instance.SpawnNextVisitor();
         }
 
         StartCoroutine(PlaySoundWithDelay(1.5f));
