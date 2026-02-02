@@ -84,6 +84,10 @@ public class GameManager : MonoBehaviour
         if (judged >= numberOfVisitors && spawner.GetCurrentVisitor() == false)
         {
             endgame = true;
+            if (dialog && dialog.activeSelf)
+            {
+                dialog.SetActive(false);
+            }
             if (doorAnimator != null)
             {
                 doorAnimator.ResetTrigger("OpenDoor");
