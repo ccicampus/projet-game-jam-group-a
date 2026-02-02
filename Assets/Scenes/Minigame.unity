@@ -502,7 +502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952c72dd048509143b5aad88567da2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Minigame
-  totalHits: 20
+  totalHits: 3
   timeout: 10
   hpText: {fileID: 1073597943}
   timerText: {fileID: 1910240387}
