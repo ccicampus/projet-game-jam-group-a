@@ -1,5 +1,4 @@
 using TMPro;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,7 +38,9 @@ public class Dialogs : MonoBehaviour
     private float timeout = 0.1f;
     private float maxTimeout = 0.1f;
     public Sprite grandmaSprite;
-    public AnimatorController grandmaAnimator;
+    // #if UNITY_EDITOR
+    public RuntimeAnimatorController grandmaAnimator;
+    // #endif
     private bool answering = false;
     private int answer_choice = 0;
     public bool end = false;
@@ -134,6 +135,8 @@ public class Dialogs : MonoBehaviour
 
     void handleAnswering()
     {
+        // #if UNITY_EDITOR
+
         if (answering)
         {
             Image image = portrait.GetComponent<Image>();
@@ -153,6 +156,7 @@ public class Dialogs : MonoBehaviour
             Animator animator = portrait.GetComponent<Animator>();
             animator.runtimeAnimatorController = visitorData.BustAnimation;
         }
+        // #endif
     }
 
     void updateTimeout()
@@ -171,5 +175,18 @@ public class Dialogs : MonoBehaviour
     int getNumberOfChoices()
     {
         return dialoguesInJson.dialogues[step].choices.GetLength(0);
+    }
+
+    public void ResetDialogues()
+    {
+        step = -1;
+        inTimeout = false;
+        answering = false;
+        answer_choice = 0;
+        end = false;
+        dialogPanel.SetActive(false);
+        optionTextList = new TextMeshProUGUI[] { optionTextObject1, optionTextObject2, optionTextObject3 };
+        dialoguesInJson = JsonUtility.FromJson<Dialogues>(jsonFile.text);
+        getNextDialog();
     }
 }

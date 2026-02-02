@@ -502,7 +502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952c72dd048509143b5aad88567da2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Minigame
-  totalHits: 20
+  totalHits: 3
   timeout: 10
   hpText: {fileID: 1073597943}
   timerText: {fileID: 1910240387}
@@ -513,6 +513,7 @@ MonoBehaviour:
   versusGrandma: {fileID: 892364860}
   versusMonster: {fileID: 1450646495}
   background: {fileID: 1281999087}
+  doorAnimator: {fileID: 1769470590}
 --- !u!212 &1040758919
 SpriteRenderer:
   serializedVersion: 2
@@ -1028,7 +1029,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.4
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1127,10 +1128,6 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2493900760453377139, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2721190841881871196, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
       propertyPath: m_SortingLayer
       value: 0
@@ -1138,6 +1135,14 @@ PrefabInstance:
     - target: {fileID: 2721190841881871196, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
       propertyPath: m_SortingLayerID
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931330081783813888, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806578102189529520, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5210132755700852425, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
       propertyPath: m_Name
@@ -1191,11 +1196,24 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7880950175926506873, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962994965011022992, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
+--- !u!95 &1769470590 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2493900760453377139, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
+  m_PrefabInstance: {fileID: 1769470589}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1910240385
 GameObject:
   m_ObjectHideFlags: 0

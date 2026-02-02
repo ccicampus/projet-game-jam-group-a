@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class References : MonoBehaviour
 {
@@ -7,4 +8,6 @@ public class References : MonoBehaviour
     public GameObject dialog;
     public Dialogs dialogScript;
     public Transform spawnPoint;
+    public Button treatsButton;
+    public Button passButton;
 }

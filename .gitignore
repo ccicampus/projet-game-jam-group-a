@@ -57,3 +57,7 @@ ExportedObj/
 .idea/
 *.sln.iml
 .vscode
+
+# Release
+[Bb]uild.zip
+[Pp]romo/

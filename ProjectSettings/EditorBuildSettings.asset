@@ -18,8 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Minigame.unity
     guid: fd4bbb6d342aab948b3e8023e990a97f
   - enabled: 1
-    path: Assets/Scenes/MainCopy.unity
-    guid: e36a04cf3d4254a70856377cfd1a7eb1
+    path: Assets/Scenes/Endgame.unity
+    guid: 6ddb073e53e900e4387be31082ebaf07
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

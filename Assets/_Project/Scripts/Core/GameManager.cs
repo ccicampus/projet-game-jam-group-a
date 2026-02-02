@@ -27,12 +27,17 @@ public class GameManager : MonoBehaviour
     public Animator doorAnimator;
     public GameObject dialog;
     public Dialogs dialogScript;
+    public bool openingDoor = false;
 
     [Header("Game Loop")]
     public VisitorSpawner spawner;
+    public int numberOfVisitors = 5;
+    public int judged = 0;
+    private bool endgame = false;
 
     [Header("Guessing")]
     public float guessing_timer = 3f;
+    public float max_guessing_timer = 3f;
     private bool hasTriggeredDialogThisRound = false;
     private float dialogDelayTimer = 0f;
     private const float DIALOG_DELAY = 2f;
@@ -40,6 +45,12 @@ public class GameManager : MonoBehaviour
     public bool IsPaused { get; private set; }
     public int CurrentLevel => currentLevel;
     public int PlayerScore => playerScore;
+    private Button treatsButton;
+    private Button passButton;
+
+    [Header("Fight")]
+    private bool fight = false;
+
 
     private void Awake()
     {
@@ -65,11 +76,43 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        // #if UNITY_EDITOR
         findReferences();
-        if (doorAnimator != null && spawner != null)
+        if (judged >= numberOfVisitors && spawner.GetCurrentVisitor() == false)
         {
-            if (spawner.GetCurrentVisitor() == null || spawner.GetCurrentVisitor().HasBeenJudged)
+            endgame = true;
+            if (doorAnimator != null)
             {
+                doorAnimator.ResetTrigger("OpenDoor");
+            }
+            // TRIGGER END SCENE
+            HandleEndGame();
+        }
+        else if (doorAnimator != null && spawner != null && endgame == false)
+        {
+            AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
+
+            // if (spawner.GetCurrentVisitor() == null || spawner.GetCurrentVisitor().HasBeenJudged)
+            // {
+            //     if (stateInfo.IsName("IdleClosed") && !doorAnimator.IsInTransition(0))
+            //     {
+            //         spawner.SpawnNextVisitor();
+            //         doorAnimator.SetTrigger("OpenDoor");
+            //         if (dialogScript != null)
+            //         {
+            //             Visitor visitor = spawner.GetCurrentVisitor();
+            //             Image portraitSprite = dialogScript.portrait.GetComponent<Image>();
+            //             portraitSprite.sprite = visitor.GetVisitorData().BustSprite;
+            //             Animator portraitAnimator = dialogScript.portrait.GetComponent<Animator>();
+            //             portraitAnimator.runtimeAnimatorController = visitor.GetVisitorData().BustAnimation;
+            //             dialogScript.jsonFile = visitor.GetVisitorData().DialoguesJson;
+            //             dialogScript.ResetDialogues();
+            //         }
+            //     }
+            // }
+            if (openingDoor && judged < numberOfVisitors)
+            {
+                openingDoor = false;
                 spawner.SpawnNextVisitor();
                 doorAnimator.SetTrigger("OpenDoor");
                 if (dialogScript != null)
@@ -79,10 +122,12 @@ public class GameManager : MonoBehaviour
                     portraitSprite.sprite = visitor.GetVisitorData().BustSprite;
                     Animator portraitAnimator = dialogScript.portrait.GetComponent<Animator>();
                     portraitAnimator.runtimeAnimatorController = visitor.GetVisitorData().BustAnimation;
+                    dialogScript.jsonFile = visitor.GetVisitorData().DialoguesJson;
+                    dialogScript.ResetDialogues();
                 }
             }
 
-            AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
+
             // When door reaches Fully Open, start the delay timer                                   
             if (stateInfo.IsName("FullyOpen") && !doorAnimator.IsInTransition(0))
             {
@@ -100,25 +145,18 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            if (stateInfo.IsName("DoorClosing"))
+            if (stateInfo.IsName("SlamDOor"))
             {
-                hasTriggeredDialogThisRound = false;
-                dialogDelayTimer = 0f;
+                ResetManager();
             }
 
+            ActivateButtons();
             if (dialogScript != null && dialogScript.end)
             {
-                if (dialog.activeSelf == true)
-                {
-                    dialog.SetActive(false);
-                }
-                guessing_timer -= Time.deltaTime;
-                if (guessing_timer < 0)
-                {
-                    SceneTransitionManager.Instance.LoadScene(2);
-                }
+                HandleEndOfEncounter();
             }
         }
+        // #endif
     }
 
     private void InitializeGame()
@@ -220,6 +258,106 @@ public class GameManager : MonoBehaviour
 #endif
     }
 
+    void HandleEndOfEncounter()
+    {
+        if (dialog.activeSelf == true)
+        {
+            dialog.SetActive(false);
+        }
+
+        Visitor visitor = VisitorSpawner.Instance.GetCurrentVisitor();
+        guessing_timer -= Time.deltaTime;
+        if ((guessing_timer < 0 && visitor.GetVisitorData().ActualType == VisitorType.Monster) || fight)
+        {
+            SceneTransitionManager.Instance.LoadScene(2);
+        }
+        else if (guessing_timer < 0 && visitor.GetVisitorData().ActualType == VisitorType.Kid)
+        {
+            if (visitor.HasBeenJudged == false)
+            {
+                visitor.Judge(VisitorType.Monster);
+                doorAnimator.SetTrigger("CloseDoor");
+            }
+        }
+    }
+
+    void HandleEndGame()
+    {
+        if (doorAnimator != null)
+        {
+            AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
+            if (stateInfo.IsName("IdleClosed") && !doorAnimator.IsInTransition(0))
+            {
+                SceneTransitionManager.Instance.LoadScene(3);
+            }
+        }
+    }
+
+    void ActivateButtons()
+    {
+        if (treatsButton && passButton)
+        {
+            if (dialogScript.end && VisitorSpawner.Instance.GetCurrentVisitor().HasBeenJudged == false)
+            {
+                if (treatsButton.gameObject.activeSelf == false || passButton.gameObject.activeSelf == false)
+                {
+                    treatsButton.gameObject.SetActive(true);
+                    passButton.gameObject.SetActive(true);
+                }
+            }
+            else
+            {
+                if (treatsButton.gameObject.activeSelf == true || passButton.gameObject.activeSelf == true)
+                {
+                    treatsButton.gameObject.SetActive(false);
+                    passButton.gameObject.SetActive(false);
+                }
+            }
+        }
+    }
+
+    void ClickTreats()
+    {
+        if (dialogScript.end && guessing_timer > 0)
+        {
+            Visitor visitor = VisitorSpawner.Instance.GetCurrentVisitor();
+            if (visitor.HasBeenJudged == false)
+            {
+                visitor.Judge(VisitorType.Kid);
+                doorAnimator.SetTrigger("CloseDoor");
+            }
+        }
+    }
+
+    void ClickPass()
+    {
+        if (dialogScript.end && guessing_timer > 0)
+        {
+            Visitor visitor = VisitorSpawner.Instance.GetCurrentVisitor();
+            if (visitor.HasBeenJudged == false)
+            {
+                visitor.Judge(VisitorType.Monster);
+                if (visitor.GetVisitorData().ActualType == VisitorType.Monster)
+                {
+                    fight = true;
+                }
+                else
+                {
+                    doorAnimator.SetTrigger("CloseDoor");
+                }
+            }
+        }
+    }
+
+    public void ResetManager()
+    {
+        fight = false;
+        guessing_timer = max_guessing_timer;
+        hasTriggeredDialogThisRound = false;
+        dialogDelayTimer = 0f;
+        dialogScript.ResetDialogues();
+    }
+
     private void findReferences()
     {
         GameObject references = GameObject.Find("References");
@@ -238,6 +376,20 @@ public class GameManager : MonoBehaviour
             {
                 dialogScript = refs.dialogScript;
             }
+            if (treatsButton == null)
+            {
+                treatsButton = refs.treatsButton;
+                treatsButton.onClick.AddListener(ClickTreats);
+            }
+            if (passButton == null)
+            {
+                passButton = refs.passButton;
+                passButton.onClick.AddListener(ClickPass);
+            }
+        }
+        if (spawner == null)
+        {
+            spawner = VisitorSpawner.Instance;
         }
     }
 

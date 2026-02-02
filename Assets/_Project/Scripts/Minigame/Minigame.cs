@@ -16,6 +16,7 @@ public class Minigame : MonoBehaviour
     public GameObject versusGrandma;
     public GameObject versusMonster;
     public GameObject background;
+    public Animator doorAnimator;
     private float horizontalInput;
     private bool right = true;
     private bool tutorial = true;
@@ -34,6 +35,7 @@ public class Minigame : MonoBehaviour
         hpText.text = "";
         timerText.text = "";
         sprite = GetComponent<SpriteRenderer>();
+        doorAnimator.Play("FullyOpen");
     }
 
     // Update is called once per frame
@@ -128,7 +130,10 @@ public class Minigame : MonoBehaviour
                 hpText.text = "win";
                 end = true;
                 VisitorSpawner.Instance.GetCurrentVisitor().Judge(VisitorType.Monster);
+                doorAnimator.SetTrigger("CloseDoor");
+                Destroy(VisitorSpawner.Instance.GetCurrentVisitor().gameObject);
                 SceneTransitionManager.Instance.LoadScene(1);
+                gameObject.SetActive(false);
             }
             else
             {
