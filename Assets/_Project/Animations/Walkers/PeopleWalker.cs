@@ -30,6 +30,7 @@ public class PeopleWalker : MonoBehaviour
         if (Mathf.Abs(transform.position.x - startPos.x) >= walkDistance)
         {
             direction *= -1f;
+            startPos = transform.position;
 
             // Flip sprite on Y axis                                                              
             Vector3 scale = transform.localScale;
