@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         InitializeGame();
+        guessing_timer = max_guessing_timer;
     }
 
     void Update()
@@ -92,24 +93,6 @@ public class GameManager : MonoBehaviour
         {
             AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
 
-            // if (spawner.GetCurrentVisitor() == null || spawner.GetCurrentVisitor().HasBeenJudged)
-            // {
-            //     if (stateInfo.IsName("IdleClosed") && !doorAnimator.IsInTransition(0))
-            //     {
-            //         spawner.SpawnNextVisitor();
-            //         doorAnimator.SetTrigger("OpenDoor");
-            //         if (dialogScript != null)
-            //         {
-            //             Visitor visitor = spawner.GetCurrentVisitor();
-            //             Image portraitSprite = dialogScript.portrait.GetComponent<Image>();
-            //             portraitSprite.sprite = visitor.GetVisitorData().BustSprite;
-            //             Animator portraitAnimator = dialogScript.portrait.GetComponent<Animator>();
-            //             portraitAnimator.runtimeAnimatorController = visitor.GetVisitorData().BustAnimation;
-            //             dialogScript.jsonFile = visitor.GetVisitorData().DialoguesJson;
-            //             dialogScript.ResetDialogues();
-            //         }
-            //     }
-            // }
             if (openingDoor && judged < numberOfVisitors)
             {
                 openingDoor = false;
@@ -145,8 +128,9 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            if (stateInfo.IsName("SlamDOor"))
+            if (stateInfo.IsName("SlamDoor"))
             {
+                Debug.Log("COME ON AND SLAM");
                 ResetManager();
             }
 
@@ -355,7 +339,6 @@ public class GameManager : MonoBehaviour
         guessing_timer = max_guessing_timer;
         hasTriggeredDialogThisRound = false;
         dialogDelayTimer = 0f;
-        dialogScript.ResetDialogues();
     }
 
     private void findReferences()
@@ -366,25 +349,44 @@ public class GameManager : MonoBehaviour
             References refs = references.GetComponent<References>();
             if (doorAnimator == null)
             {
-                doorAnimator = refs.doorAnimator;
+                if (refs.doorAnimator)
+                {
+                    doorAnimator = refs.doorAnimator;
+                }
             }
+
             if (dialog == null)
             {
-                dialog = refs.dialog;
+                if (refs.dialog)
+                {
+                    dialog = refs.dialog;
+                }
             }
+
             if (dialogScript == null)
             {
-                dialogScript = refs.dialogScript;
+                if (refs.dialogScript)
+                {
+                    dialogScript = refs.dialogScript;
+                }
             }
+
             if (treatsButton == null)
             {
-                treatsButton = refs.treatsButton;
-                treatsButton.onClick.AddListener(ClickTreats);
+                if (refs.treatsButton)
+                {
+                    treatsButton = refs.treatsButton;
+                    treatsButton.onClick.AddListener(ClickTreats);
+                }
             }
+
             if (passButton == null)
             {
-                passButton = refs.passButton;
-                passButton.onClick.AddListener(ClickPass);
+                if (refs.passButton)
+                {
+                    passButton = refs.passButton;
+                    passButton.onClick.AddListener(ClickPass);
+                }
             }
         }
         if (spawner == null)

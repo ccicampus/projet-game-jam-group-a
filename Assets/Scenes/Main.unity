@@ -222,6 +222,10 @@ PrefabInstance:
       propertyPath: doorAnimator
       value: 
       objectReference: {fileID: 1158624249}
+    - target: {fileID: 2400812565442356009, guid: 061150923edb4448a8dbb0a6be958dc8, type: 3}
+      propertyPath: max_guessing_timer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4259522164375343783, guid: 061150923edb4448a8dbb0a6be958dc8, type: 3}
       propertyPath: m_Name
       value: GameManager
