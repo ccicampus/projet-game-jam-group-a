@@ -1,0 +1,159 @@
+{
+    "dialogues": [
+        {
+            "original": "Trick or treat! BOO!",
+            "choices": [
+                {"answer": "A ghost! How spooky!", "next": 1},
+                {"answer": "Nice costume! Very classic!", "next": 2},
+                {"answer": "Did you make that yourself?", "next": 3}
+            ]
+        },
+        {
+            "original": "Thank you! I'm the spookiest ghost in town!",
+            "choices": [
+                {"answer": "I believe it! What's under that sheet?", "next": 4},
+                {"answer": "You certainly are! Want some candy?", "next": 5}
+            ]
+        },
+        {
+            "original": "Yep! Just cut some holes in an old sheet!",
+            "choices": [
+                {"answer": "Smart and simple! I like it!", "next": 6},
+                {"answer": "The best costumes are homemade!", "next": 7}
+            ]
+        },
+        {
+            "original": "Uh... yeah! I found it in my... basement!",
+            "choices": [
+                {"answer": "Your basement? What were you doing down there?", "next": 8},
+                {"answer": "Cool! Here's your candy!", "next": -1}
+            ]
+        },
+        {
+            "original": "Under the sheet? Just me! A regular kid! With... arms and legs!",
+            "choices": [
+                {"answer": "That's oddly specific... How many arms?", "next": 9},
+                {"answer": "Good to know! Here's your treat!", "next": -1}
+            ]
+        },
+        {
+            "original": "Yes please! I loooove candy! Especially the salty kind!",
+            "choices": [
+                {"answer": "Salty? You mean sweet candy, right?", "next": 10},
+                {"answer": "Salty candy? That's unusual!", "next": 11}
+            ]
+        },
+        {
+            "original": "Thanks! My mom says I'm very creative!",
+            "choices": [
+                {"answer": "She's right! Here's your candy!", "next": -1},
+                {"answer": "You are! What else have you made?", "next": 12}
+            ]
+        },
+        {
+            "original": "Agreed! Plus it's more comfortable than those plastic masks!",
+            "choices": [
+                {"answer": "Very true! Here you go!", "next": -1},
+                {"answer": "Comfortable for what exactly?", "next": 13}
+            ]
+        },
+        {
+            "original": "Looking for... uh... Halloween decorations! Yeah!",
+            "choices": [
+                {"answer": "In the basement? Odd place for them...", "next": 14},
+                {"answer": "Find anything good?", "next": 15}
+            ]
+        },
+        {
+            "original": "Two! Two arms! The normal amount of arms! Definitely not eight!",
+            "choices": [
+                {"answer": "EIGHT?! Why would you say eight?!", "next": 16},
+                {"answer": "Nobody said eight but you...", "next": 17}
+            ]
+        },
+        {
+            "original": "Uh... yes! Sweet! I meant sweet! I love sweet candy!",
+            "choices": [
+                {"answer": "That was a strange mistake...", "next": 18},
+                {"answer": "Okay then! Here's some sweet candy!", "next": -1}
+            ]
+        },
+        {
+            "original": "Yeah! I really like ocean flavors... I mean... CHOCOLATE!",
+            "choices": [
+                {"answer": "Ocean flavors?! What are you?!", "next": 19},
+                {"answer": "Interesting slip-up there, buddy.", "next": -1}
+            ]
+        },
+        {
+            "original": "Umm... lots of things! Like... traps! I mean... CRAFTS!",
+            "choices": [
+                {"answer": "Traps? For what exactly?", "next": 20},
+                {"answer": "Crafts are fun! Here's candy!", "next": -1}
+            ]
+        },
+        {
+            "original": "For... floating! I mean walking! Walking around!",
+            "choices": [
+                {"answer": "Ghosts float, kids walk. Which are you?", "next": 21},
+                {"answer": "Sure! Here's your candy!", "next": -1}
+            ]
+        },
+        {
+            "original": "Well... that's where we keep old stuff! Dark... damp... perfect for... storing things!",
+            "choices": [
+                {"answer": "I guess that makes sense. Here's candy!", "next": -1},
+                {"answer": "You sound TOO comfortable with dark, damp places...", "next": -1}
+            ]
+        },
+        {
+            "original": "Just this sheet! And some... tentacles! I MEAN TINSEL!",
+            "choices": [
+                {"answer": "TENTACLES?! You're not a kid!", "next": -1},
+                {"answer": "That's the second weird thing you've said...", "next": -1}
+            ]
+        },
+        {
+            "original": "I don't know! It just came out! I'm nervous!",
+            "choices": [
+                {"answer": "Nervous octopuses say strange things!", "next": -1},
+                {"answer": "Okay... I'll give you candy this time.", "next": -1}
+            ]
+        },
+        {
+            "original": "I was just... thinking about octopuses! They're cool!",
+            "choices": [
+                {"answer": "TOO convenient! No candy for you!", "next": -1},
+                {"answer": "They ARE cool. Here's candy.", "next": -1}
+            ]
+        },
+        {
+            "original": "I just... really like the ocean! I go to the beach a lot!",
+            "choices": [
+                {"answer": "Or maybe you LIVE in the ocean!", "next": -1},
+                {"answer": "Beach trips are fun! Here you go!", "next": -1}
+            ]
+        },
+        {
+            "original": "NOTHING! Just a normal kid thing! Can I have candy now?!",
+            "choices": [
+                {"answer": "You're definitely hiding something!", "next": -1},
+                {"answer": "You're very suspicious, but here!", "next": -1}
+            ]
+        },
+        {
+            "original": "For... catching fish! I mean... HALLOWEEN! For Halloween!",
+            "choices": [
+                {"answer": "You keep mentioning ocean stuff! Suspicious!", "next": -1},
+                {"answer": "Whatever you say. Here's candy.", "next": -1}
+            ]
+        },
+        {
+            "original": "I'm a KID! A walking, non-floating kid! Obviously!",
+            "choices": [
+                {"answer": "Too defensive! You're busted, monster!", "next": -1},
+                {"answer": "Alright, alright! Here's candy!", "next": -1}
+            ]
+        }
+    ]
+}

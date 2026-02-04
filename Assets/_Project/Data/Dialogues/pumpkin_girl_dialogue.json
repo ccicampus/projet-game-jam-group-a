@@ -1,0 +1,54 @@
+{
+    "dialogues": [
+        {
+            "original": "Trick or treat! Do you like my pumpkin mask?",
+            "choices": [
+                {"answer": "It's adorable! Did you make it yourself?", "next": 1},
+                {"answer": "Very creative! You look great!", "next": 2},
+                {"answer": "Why are you wearing a mask?", "next": 3}
+            ]
+        },
+        {
+            "original": "Yes! Well, my mom helped a little bit. It took forever!",
+            "choices": [
+                {"answer": "I can tell you worked hard on it!", "next": 4},
+                {"answer": "The hard work paid off! Want some candy?", "next": -1}
+            ]
+        },
+        {
+            "original": "Thanks! I wanted to be the cutest pumpkin on the block!",
+            "choices": [
+                {"answer": "Mission accomplished! Here's your treat!", "next": -1},
+                {"answer": "You definitely are! How many houses have you visited?", "next": 5}
+            ]
+        },
+        {
+            "original": "Because it's Halloween! Everyone wears masks on Halloween!",
+            "choices": [
+                {"answer": "Fair point! Here's some candy for you.", "next": -1},
+                {"answer": "True! What's your favorite candy?", "next": 6}
+            ]
+        },
+        {
+            "original": "It was really fun! Can I have candy now please?",
+            "choices": [
+                {"answer": "Of course! You've earned it!", "next": -1},
+                {"answer": "Such good manners! Here you go!", "next": -1}
+            ]
+        },
+        {
+            "original": "This is my 10th house! My bag is getting heavy!",
+            "choices": [
+                {"answer": "Wow! Let me add to that collection!", "next": -1},
+                {"answer": "Only 10? You've got energy for more!", "next": -1}
+            ]
+        },
+        {
+            "original": "Chocolate! Any kind of chocolate!",
+            "choices": [
+                {"answer": "Good taste! Here's some chocolate for you!", "next": -1},
+                {"answer": "Chocolate it is then!", "next": -1}
+            ]
+        }
+    ]
+}

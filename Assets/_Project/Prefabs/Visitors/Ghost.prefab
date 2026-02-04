@@ -57,7 +57,7 @@ MonoBehaviour:
     actualType: 1
     baseScoreValue: 100
     difficultyLevel: 1
-    dialoguesJson: {fileID: 4900000, guid: 99ae5e28c4cac5a4282ef7cc1ea4a757, type: 3}
+    dialoguesJson: {fileID: 4900000, guid: 55f8cc7a74b63584495696bf8388b996, type: 3}
     textClues: []
     hasSuspiciousFeature: 0
     accentColor: {r: 1, g: 1, b: 1, a: 1}

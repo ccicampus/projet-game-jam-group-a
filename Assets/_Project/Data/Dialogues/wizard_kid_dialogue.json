@@ -1,0 +1,47 @@
+{
+    "dialogues": [
+        {
+            "original": "Trick or treat! I'm a wizard!",
+            "choices": [
+                {"answer": "What a wonderful costume!", "next": 1},
+                {"answer": "Can you do any magic tricks?", "next": 2},
+                {"answer": "Wizards aren't real, silly.", "next": 3}
+            ]
+        },
+        {
+            "original": "Thank you! My dad helped me make the hat!",
+            "choices": [
+                {"answer": "He did a great job! What's your favorite spell?", "next": 4},
+                {"answer": "That's so sweet. Ready for candy?", "next": -1}
+            ]
+        },
+        {
+            "original": "I can make candy disappear! Watch! *pretends to eat candy*",
+            "choices": [
+                {"answer": "Haha! Very clever! Here's some real candy.", "next": -1},
+                {"answer": "That's the best trick I've seen all night!", "next": 5}
+            ]
+        },
+        {
+            "original": "But I wanna be a real wizard when I grow up!",
+            "choices": [
+                {"answer": "Then keep practicing your magic!", "next": -1},
+                {"answer": "That's a wonderful dream, sweetie.", "next": -1}
+            ]
+        },
+        {
+            "original": "Umm... Abracadabra? Oh! And Expecto Patronum!",
+            "choices": [
+                {"answer": "Excellent choices! Here's your candy!", "next": -1},
+                {"answer": "A Harry Potter fan! Me too!", "next": -1}
+            ]
+        },
+        {
+            "original": "Really?! Can I have extra candy then?",
+            "choices": [
+                {"answer": "Nice try! Here's your candy.", "next": -1},
+                {"answer": "You earned it! Here you go!", "next": -1}
+            ]
+        }
+    ]
+}

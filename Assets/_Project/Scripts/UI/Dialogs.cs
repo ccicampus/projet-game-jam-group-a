@@ -38,9 +38,7 @@ public class Dialogs : MonoBehaviour
     private float timeout = 0.1f;
     private float maxTimeout = 0.1f;
     public Sprite grandmaSprite;
-    // #if UNITY_EDITOR
     public RuntimeAnimatorController grandmaAnimator;
-    // #endif
     private bool answering = false;
     private int answer_choice = 0;
     public bool end = false;
@@ -98,8 +96,10 @@ public class Dialogs : MonoBehaviour
 
     void handleInput()
     {
-        float horizontalInput = InputManager.Instance.MoveInput.x;
         bool up = InputManager.Instance.JumpPressed;
+        bool one = InputManager.Instance.Skill1Pressed;
+        bool two = InputManager.Instance.Skill2Pressed;
+        bool three = InputManager.Instance.Skill3Pressed;
 
         if (answering)
         {
@@ -112,19 +112,19 @@ public class Dialogs : MonoBehaviour
         }
         else
         {
-            if (horizontalInput == -1)
+            if (one)
             {
                 answering = true;
                 answer_choice = 0;
                 handleAnswering();
             }
-            else if (horizontalInput == 1)
+            else if (two)
             {
                 answering = true;
                 answer_choice = 1;
                 handleAnswering();
             }
-            else if (up && getNumberOfChoices() == 3)
+            else if (three && getNumberOfChoices() == 3)
             {
                 answering = true;
                 answer_choice = 2;
@@ -135,7 +135,6 @@ public class Dialogs : MonoBehaviour
 
     void handleAnswering()
     {
-        // #if UNITY_EDITOR
 
         if (answering)
         {
@@ -156,7 +155,6 @@ public class Dialogs : MonoBehaviour
             Animator animator = portrait.GetComponent<Animator>();
             animator.runtimeAnimatorController = visitorData.BustAnimation;
         }
-        // #endif
     }
 
     void updateTimeout()

@@ -1,0 +1,97 @@
+{
+    "dialogues": [
+        {
+            "original": "Trick or treat! I'm a vampire!",
+            "choices": [
+                {"answer": "What a lovely costume, dear!", "next": 1},
+                {"answer": "You look very scary!", "next": 2},
+                {"answer": "Vampires aren't real, you know.", "next": 3}
+            ]
+        },
+        {
+            "original": "Thank you! My mom made it for me!",
+            "choices": [
+                {"answer": "She did a wonderful job. What's your favorite candy?", "next": 4},
+                {"answer": "That's sweet. Ready for your treat?", "next": 5}
+            ]
+        },
+        {
+            "original": "Thanks! I've been practicing my scary face all week!",
+            "choices": [
+                {"answer": "Well it's working! Let me see it again.", "next": 6},
+                {"answer": "I bet you have. What candy do you like?", "next": 4}
+            ]
+        },
+        {
+            "original": "But... but I am real! I'm 347 years old!",
+            "choices": [
+                {"answer": "Oh really? Then what was Halloween like in the 1600s?", "next": 7},
+                {"answer": "Sure you are, sweetie. Want some candy?", "next": 5}
+            ]
+        },
+        {
+            "original": "Anything with blood... I mean, RED! Anything red!",
+            "choices": [
+                {"answer": "Blood? That's an interesting choice of words...", "next": 8},
+                {"answer": "Red candies coming right up!", "next": -1},
+                {"answer": "How about something else?", "next": -1}
+            ]
+        },
+        {
+            "original": "Yes please! This is my last house!",
+            "choices": [
+                {"answer": "Here you go, happy Halloween!", "next": -1},
+                {"answer": "Wait, let me ask you something first...", "next": 9}
+            ]
+        },
+        {
+            "original": "*shows fangs* BLEH! Like this?",
+            "choices": [
+                {"answer": "Very impressive! Those look so real!", "next": 10},
+                {"answer": "Wait... are those REAL fangs?!", "next": 11}
+            ]
+        },
+        {
+            "original": "Uh... we didn't have candy back then! Just... blood! I mean BEETS!",
+            "choices": [
+                {"answer": "Nice save. Here's your candy.", "next": -1},
+                {"answer": "I don't think so, monster!", "next": -1}
+            ]
+        },
+        {
+            "original": "I just really like the color! It's my favorite!",
+            "choices": [
+                {"answer": "Mine too! Here's some candy.", "next": -1},
+                {"answer": "Mmm-hmm. No candy for you!", "next": -1}
+            ]
+        },
+        {
+            "original": "Okay... what do you want to know?",
+            "choices": [
+                {"answer": "Never mind, here's your candy!", "next": -1},
+                {"answer": "Can you come in for some cookies?", "next": 12}
+            ]
+        },
+        {
+            "original": "Thanks! My dentist says they're very healthy!",
+            "choices": [
+                {"answer": "That's good! Here's your treat!", "next": -1},
+                {"answer": "Your dentist likes fangs? Suspicious...", "next": -1}
+            ]
+        },
+        {
+            "original": "N-no! They're fake! Totally fake! Very fake!",
+            "choices": [
+                {"answer": "If you say so... here's candy!", "next": -1},
+                {"answer": "Nice try, monster!", "next": -1}
+            ]
+        },
+        {
+            "original": "I... I can't! My mom says I can't go into stranger's houses!",
+            "choices": [
+                {"answer": "Smart mom! Here's your candy then.", "next": -1},
+                {"answer": "Or is it because you're a vampire?", "next": -1}
+            ]
+        }
+    ]
+}
