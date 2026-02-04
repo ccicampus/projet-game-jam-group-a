@@ -79,7 +79,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        // #if UNITY_EDITOR
         findReferences();
         if (judged >= numberOfVisitors && spawner.GetCurrentVisitor() == false)
         {
@@ -144,7 +143,6 @@ public class GameManager : MonoBehaviour
                 HandleEndOfEncounter();
             }
         }
-        // #endif
     }
 
     private void InitializeGame()

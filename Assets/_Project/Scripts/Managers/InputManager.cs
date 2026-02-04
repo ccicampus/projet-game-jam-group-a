@@ -25,11 +25,17 @@ public class InputManager : MonoBehaviour
     public bool JumpHeld { get; private set; }
     public bool AttackPressed { get; private set; }
     public bool PausePressed { get; private set; }
+    public bool Skill1Pressed { get; private set; }
+    public bool Skill2Pressed { get; private set; }
+    public bool Skill3Pressed { get; private set; }
 
     // Track previous frame state for "pressed this frame" detection
     private bool previousJumpState;
     private bool previousAttackState;
     private bool previousPauseState;
+    private bool previousSkill1State;
+    private bool previousSkill2State;
+    private bool previousSkill3State;
 
     private void Awake()
     {
@@ -138,8 +144,35 @@ public class InputManager : MonoBehaviour
         PausePressed = currentPauseState && !previousPauseState; // Only true on initial press
         previousPauseState = currentPauseState;
 
+        // SKILL 1 INPUT
+        // Support 1 key
+        bool currentSkill1State = false;
+        if (Keyboard.current != null && Keyboard.current.digit1Key.isPressed)
+            currentSkill1State = true;
+
+        Skill1Pressed = currentSkill1State && !previousSkill1State; // Only true on initial press
+        previousSkill1State = currentSkill1State;
+
+        // SKILL 2 INPUT
+        // Support 2 key
+        bool currentSkill2State = false;
+        if (Keyboard.current != null && Keyboard.current.digit2Key.isPressed)
+            currentSkill2State = true;
+
+        Skill2Pressed = currentSkill2State && !previousSkill2State; // Only true on initial press
+        previousSkill2State = currentSkill2State;
+
+        // SKILL 3 INPUT
+        // Support 3 key
+        bool currentSkill3State = false;
+        if (Keyboard.current != null && Keyboard.current.digit3Key.isPressed)
+            currentSkill3State = true;
+
+        Skill3Pressed = currentSkill3State && !previousSkill3State; // Only true on initial press
+        previousSkill3State = currentSkill3State;
+
         if (debugInput && MoveInput != Vector2.zero)
-            Debug.Log($"Input: Move={MoveInput}, Jump={JumpPressed}/{JumpHeld}, Attack={AttackPressed}, Pause={PausePressed}");
+            Debug.Log($"Input: Move={MoveInput}, Jump={JumpPressed}/{JumpHeld}, Attack={AttackPressed}, Pause={PausePressed}, Skill1={Skill1Pressed}, Skill2={Skill2Pressed}, Skill3={Skill3Pressed}");
     }
 
     private void ResetInputs()
@@ -152,6 +185,9 @@ public class InputManager : MonoBehaviour
         previousJumpState = false;
         previousAttackState = false;
         previousPauseState = false;
+        previousSkill1State = false;
+        previousSkill2State = false;
+        previousSkill3State = false;
     }
 
     public void SetInputEnabled(bool enabled)
