@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 0e266900acdbc4440a194a896374414f
+guid: fc8cfe6ca12422248bdc316a8a39b2a9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4489018102377671959
-    second: franken_2_bust_closed_0
-  - first:
-      213: -1366360370945371980
-    second: franken_2_bust_closed_1
+      213: -3067956356761900037
+    second: half_pumpkin_girl_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: franken_2_bust_closed_0
+      name: half_pumpkin_girl_0
       rect:
         serializedVersion: 2
-        x: 703
+        x: 788
         y: 0
-        width: 502
-        height: 648
+        width: 341
+        height: 533
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,30 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e21b79d1ddc3b1c0800000000000000
-      internalID: -4489018102377671959
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: franken_2_bust_closed_1
-      rect:
-        serializedVersion: 2
-        x: 1070
-        y: 625
-        width: 6
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4b051ae5b76b90de0800000000000000
-      internalID: -1366360370945371980
+      spriteID: bfb2ec0c2fd6c65d0800000000000000
+      internalID: -3067956356761900037
       vertices: []
       indices: 
       edges: []
@@ -176,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -186,8 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      franken_2_bust_closed_0: -4489018102377671959
-      franken_2_bust_closed_1: -1366360370945371980
+      half_pumpkin_girl_0: -3067956356761900037
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

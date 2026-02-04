@@ -1,0 +1,152 @@
+{
+    "dialogues": [
+        {
+            "original": "Good evening! Trick or treat! I vant to suck your... candy!",
+            "choices": [
+                {"answer": "A vampire! And a polite one too!", "next": 1},
+                {"answer": "Nice accent! Very dramatic!", "next": 2},
+                {"answer": "You almost said something else there...", "next": 3}
+            ]
+        },
+        {
+            "original": "Thank you! I've been practicing my Transylvanian accent!",
+            "choices": [
+                {"answer": "It's very good! Where'd you learn it?", "next": 4},
+                {"answer": "Impressive! Ready for your treat?", "next": 5}
+            ]
+        },
+        {
+            "original": "I know! My drama teacher says I should be an actor!",
+            "choices": [
+                {"answer": "You'd be great at it! What plays have you done?", "next": 6},
+                {"answer": "I can see that! Here's some candy!", "next": -1}
+            ]
+        },
+        {
+            "original": "No! I said candy! Vampires only want candy on Halloween!",
+            "choices": [
+                {"answer": "That's what they all say...", "next": 7},
+                {"answer": "Fair enough! Here you go!", "next": -1}
+            ]
+        },
+        {
+            "original": "From... movies! Lots of vampire movies!",
+            "choices": [
+                {"answer": "Which one's your favorite?", "next": 8},
+                {"answer": "Good source! Here's your candy!", "next": -1}
+            ]
+        },
+        {
+            "original": "Yes! I've been trick-or-treating for hours! My feet hurt!",
+            "choices": [
+                {"answer": "You should take a break! Want some water?", "next": 9},
+                {"answer": "Almost done! Here's your treat!", "next": -1}
+            ]
+        },
+        {
+            "original": "Oh, uh... underwater ones! I mean... THE UNDERGROUND ones! Like... in caves!",
+            "choices": [
+                {"answer": "Underwater? That's a weird mistake...", "next": 10},
+                {"answer": "Caves make sense for vampires! Here's candy!", "next": -1}
+            ]
+        },
+        {
+            "original": "You can trust me! I promise! Cross my heart!",
+            "choices": [
+                {"answer": "Vampires don't have heartbeats though...", "next": 11},
+                {"answer": "Good enough for me! Here you go!", "next": -1}
+            ]
+        },
+        {
+            "original": "Dracula! The one with all the water... I mean BATS! The bats!",
+            "choices": [
+                {"answer": "Water? There's no water in Dracula...", "next": 12},
+                {"answer": "Classic choice! Here's candy!", "next": -1}
+            ]
+        },
+        {
+            "original": "Water? Oh yes! I get very thirsty! Vampires get thirsty!",
+            "choices": [
+                {"answer": "For water... or something else?", "next": 13},
+                {"answer": "Sure! Let me get you some!", "next": 14}
+            ]
+        },
+        {
+            "original": "I was just thinking about... swimming! I love swimming!",
+            "choices": [
+                {"answer": "Vampires don't usually love water...", "next": 15},
+                {"answer": "Swimming's great! Here's candy!", "next": -1}
+            ]
+        },
+        {
+            "original": "It's just an expression! I definitely have a heartbeat! Listen! *thumps chest*",
+            "choices": [
+                {"answer": "That sounded... wet? Are you okay?", "next": 16},
+                {"answer": "Okay! I believe you! Here's candy!", "next": -1}
+            ]
+        },
+        {
+            "original": "Uh... the castle is near water! A moat! With water! That's what I meant!",
+            "choices": [
+                {"answer": "That's quite a stretch, but okay...", "next": 17},
+                {"answer": "Sure! Nice save! Here you go!", "next": -1}
+            ]
+        },
+        {
+            "original": "For... drinking! Yes! Regular drinking! Like... a regular kid!",
+            "choices": [
+                {"answer": "Why do you keep mentioning water?", "next": 18},
+                {"answer": "Hydration is important! Here's candy too!", "next": -1}
+            ]
+        },
+        {
+            "original": "Wait! I can explain! Let me just adjust my mask... NO WAIT!",
+            "choices": [
+                {"answer": "Too late! What are you hiding?", "next": -1},
+                {"answer": "Keep it on! Here's your candy!", "next": -1}
+            ]
+        },
+        {
+            "original": "Well... THIS vampire does! I'm a... modern vampire! We've evolved!",
+            "choices": [
+                {"answer": "Evolved to breathe underwater maybe?", "next": 19},
+                {"answer": "Modern vampires! Interesting! Here's candy!", "next": -1}
+            ]
+        },
+        {
+            "original": "Wet? No! Must be the humidity! Very humid tonight!",
+            "choices": [
+                {"answer": "It's not humid at all tonight...", "next": 20},
+                {"answer": "If you say so! Here's your candy!", "next": -1}
+            ]
+        },
+        {
+            "original": "Yeah! Exactly! The moat! Full of... fish! I mean... MIST! Spooky mist!",
+            "choices": [
+                {"answer": "FISH?! Are you some kind of sea creature?!", "next": -1},
+                {"answer": "You really like water themes, huh? Here's candy.", "next": -1}
+            ]
+        },
+        {
+            "original": "Because I'm... very health conscious! Hydration is important!",
+            "choices": [
+                {"answer": "For a vampire? Suspicious!", "next": -1},
+                {"answer": "True! Good for you! Here's candy!", "next": -1}
+            ]
+        },
+        {
+            "original": "NO! I mean... maybe! Science is complicated! Can I just have candy?!",
+            "choices": [
+                {"answer": "You're definitely not a vampire! But here's candy anyway.", "next": -1},
+                {"answer": "Nice try, fish monster!", "next": -1}
+            ]
+        },
+        {
+            "original": "Uh... different people feel temperature differently! Can I please have my candy now?",
+            "choices": [
+                {"answer": "Fine! You're weird, but here!", "next": -1},
+                {"answer": "No! You're clearly not human!", "next": -1}
+            ]
+        }
+    ]
+}

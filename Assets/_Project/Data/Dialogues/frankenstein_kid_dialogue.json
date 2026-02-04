@@ -1,0 +1,75 @@
+{
+    "dialogues": [
+        {
+            "original": "TRICK OR TREAT! RAAAWR!",
+            "choices": [
+                {"answer": "Oh my! What a scary monster!", "next": 1},
+                {"answer": "Frankenstein! Classic choice!", "next": 2},
+                {"answer": "Are you trying to scare me?", "next": 3}
+            ]
+        },
+        {
+            "original": "Hehe, did I scare you? I've been practicing!",
+            "choices": [
+                {"answer": "You got me! Very convincing!", "next": 4},
+                {"answer": "Almost! Your makeup looks so real!", "next": 5}
+            ]
+        },
+        {
+            "original": "Yep! My big brother has the same costume!",
+            "choices": [
+                {"answer": "You two must look great together!", "next": 6},
+                {"answer": "Is he trick-or-treating too?", "next": 7}
+            ]
+        },
+        {
+            "original": "Yeah! I practiced my roar all week! RAAAWR!",
+            "choices": [
+                {"answer": "Very impressive! Here's your candy!", "next": -1},
+                {"answer": "Your neighbors must love you!", "next": 8}
+            ]
+        },
+        {
+            "original": "Thanks! My mom said I scared the mailman yesterday!",
+            "choices": [
+                {"answer": "Haha! I bet he jumped!", "next": -1},
+                {"answer": "That's hilarious! Here's your treat!", "next": -1}
+            ]
+        },
+        {
+            "original": "Thanks! It took my mom TWO HOURS to put it on!",
+            "choices": [
+                {"answer": "Two hours?! That's dedication!", "next": 9},
+                {"answer": "Wow! She's very talented!", "next": -1}
+            ]
+        },
+        {
+            "original": "Yeah! We're gonna combine our candy later!",
+            "choices": [
+                {"answer": "Smart plan! Here's some for your collection!", "next": -1},
+                {"answer": "Teamwork! I love it! Here you go!", "next": -1}
+            ]
+        },
+        {
+            "original": "No, he's too old. He's 13 now. He doesn't trick-or-treat anymore.",
+            "choices": [
+                {"answer": "Well, more candy for you then!", "next": -1},
+                {"answer": "His loss! Here's your treat!", "next": -1}
+            ]
+        },
+        {
+            "original": "Hehe, they think it's funny! Can I have my candy now?",
+            "choices": [
+                {"answer": "Of course! You've earned it, monster!", "next": -1},
+                {"answer": "Absolutely! Great costume!", "next": -1}
+            ]
+        },
+        {
+            "original": "Yeah! And I had to sit REALLY still! It was hard!",
+            "choices": [
+                {"answer": "You're very patient! Here's your reward!", "next": -1},
+                {"answer": "That's tough! You deserve extra candy!", "next": -1}
+            ]
+        }
+    ]
+}

@@ -45,10 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VisitorSpawner
   spawnPoint: {fileID: 0}
-  tutorialVisitorPrefab: {fileID: 8263572874456561533, guid: c070120eb73b2ea4cb077e0ce884bd06, type: 3}
+  tutorialVisitorPrefab: {fileID: 8733695435580630485, guid: 1715596a78aa7d9419b04e4f8538c9a0, type: 3}
   visitorPrefabs:
   - {fileID: 3299436278215383437, guid: ff38306066ff7cc428c5974255aead6a, type: 3}
   - {fileID: 8263572874456561533, guid: c070120eb73b2ea4cb077e0ce884bd06, type: 3}
   - {fileID: 2773636609125120596, guid: f05fb2f679c3b3c478417e56268dc6ea, type: 3}
+  - {fileID: 2508806415446332869, guid: 6b85454f3a6504f46b1d60aa31f4944e, type: 3}
+  - {fileID: 249909064461746617, guid: 014a9d3a5dd4c304d9786dd401605687, type: 3}
+  - {fileID: 8733695435580630485, guid: 1715596a78aa7d9419b04e4f8538c9a0, type: 3}
   encounteredVisitorNames: []
   debugMode: 0

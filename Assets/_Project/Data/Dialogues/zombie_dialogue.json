@@ -1,0 +1,84 @@
+{
+    "dialogues": [
+        {
+            "original": "Tri...ck... or... tre...at...",
+            "choices": [
+                {"answer": "That's quite a voice you have there...", "next": 1},
+                {"answer": "Are you okay? You sound strange.", "next": 2},
+                {"answer": "Nice and slow! Here's your candy!", "next": -1}
+            ]
+        },
+        {
+            "original": "Thaaaank... yooou... I am... norrrmal... child...",
+            "choices": [
+                {"answer": "Normal child, huh? What's your favorite subject in school?", "next": 3},
+                {"answer": "You don't sound very normal...", "next": 4},
+                {"answer": "Sure you are! Here's candy!", "next": -1}
+            ]
+        },
+        {
+            "original": "I... am... fiiiine... Just... coooold... out... siiide...",
+            "choices": [
+                {"answer": "Would you like to come in and warm up?", "next": 5},
+                {"answer": "It is chilly! Here's some candy to warm you up!", "next": -1},
+                {"answer": "Cold? It's not that cold tonight...", "next": 6}
+            ]
+        },
+        {
+            "original": "Scho...ol...? Ummm... Luuunch... tiiiime...",
+            "choices": [
+                {"answer": "Lunch isn't a subject, sweetie.", "next": 7},
+                {"answer": "Ha! Everyone loves lunch! Here you go!", "next": -1}
+            ]
+        },
+        {
+            "original": "Sorrrry... Throat... huuurts... Need... caaaandy...",
+            "choices": [
+                {"answer": "Candy won't help a sore throat, dear.", "next": 8},
+                {"answer": "Poor thing! Here's some candy!", "next": -1}
+            ]
+        },
+        {
+            "original": "Nooo... Must... staaay... out... siiide... Caaandy... pleease...",
+            "choices": [
+                {"answer": "Why can't you come inside?", "next": 9},
+                {"answer": "Alright then, here's your candy!", "next": -1}
+            ]
+        },
+        {
+            "original": "I... I... am... dead... I mean... COLD! Verrry... coooold...",
+            "choices": [
+                {"answer": "Did you just say DEAD?!", "next": 10},
+                {"answer": "Nice save. No candy for you, monster!", "next": -1}
+            ]
+        },
+        {
+            "original": "Oh... Right... I... meant... Reeee...cess...",
+            "choices": [
+                {"answer": "Good try, but I don't think so!", "next": -1},
+                {"answer": "Close enough! Here's candy!", "next": -1}
+            ]
+        },
+        {
+            "original": "Caaandy... is... maaaagic... heeeals... everything...",
+            "choices": [
+                {"answer": "That's not how medicine works!", "next": -1},
+                {"answer": "Well, if you say so! Here!", "next": -1}
+            ]
+        },
+        {
+            "original": "Becaaause... ummm... Paaaaarents... said... sooo...",
+            "choices": [
+                {"answer": "Suspicious, but okay. Here's candy.", "next": -1},
+                {"answer": "I don't believe you, monster!", "next": -1}
+            ]
+        },
+        {
+            "original": "NOOO! I... said... BREAD! I... loooove... breeeead!",
+            "choices": [
+                {"answer": "That doesn't make it better! No candy!", "next": -1},
+                {"answer": "Sure, whatever. Here's candy anyway.", "next": -1}
+            ]
+        }
+    ]
+}

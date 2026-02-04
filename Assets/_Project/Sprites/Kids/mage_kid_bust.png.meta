@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 0e266900acdbc4440a194a896374414f
+guid: 8873134b6514b4624a14f5f7b45b4d5a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4489018102377671959
-    second: franken_2_bust_closed_0
-  - first:
-      213: -1366360370945371980
-    second: franken_2_bust_closed_1
+      213: 320347575194474775
+    second: blac_kid_bust_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: franken_2_bust_closed_0
+      name: blac_kid_bust_0
       rect:
         serializedVersion: 2
-        x: 703
+        x: 773
         y: 0
-        width: 502
-        height: 648
+        width: 363
+        height: 621
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,30 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e21b79d1ddc3b1c0800000000000000
-      internalID: -4489018102377671959
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: franken_2_bust_closed_1
-      rect:
-        serializedVersion: 2
-        x: 1070
-        y: 625
-        width: 6
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4b051ae5b76b90de0800000000000000
-      internalID: -1366360370945371980
+      spriteID: 719df102c6a127400800000000000000
+      internalID: 320347575194474775
       vertices: []
       indices: 
       edges: []
@@ -186,8 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      franken_2_bust_closed_0: -4489018102377671959
-      franken_2_bust_closed_1: -1366360370945371980
+      blac_kid_bust_0: 320347575194474775
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

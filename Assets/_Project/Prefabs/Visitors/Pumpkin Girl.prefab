@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2773636609125120596
+--- !u!1 &249909064461746617
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,62 +8,62 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3744067582112764363}
-  - component: {fileID: 5740292188025780143}
-  - component: {fileID: 8727486077497866745}
-  - component: {fileID: 7218456004877356248}
+  - component: {fileID: 6728806258078457412}
+  - component: {fileID: 3075015440933880805}
+  - component: {fileID: 732223694477561261}
+  - component: {fileID: 6531547556553473279}
   m_Layer: 0
-  m_Name: Zombie
+  m_Name: Pumpkin Girl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3744067582112764363
+--- !u!4 &6728806258078457412
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2773636609125120596}
+  m_GameObject: {fileID: 249909064461746617}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.55897, y: -0.61241, z: 0}
+  m_LocalPosition: {x: 1.41693, y: -2.34309, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5740292188025780143
+--- !u!114 &3075015440933880805
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2773636609125120596}
+  m_GameObject: {fileID: 249909064461746617}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be744f80139ea47b9863bb68c3900f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Visitor
   visitorData:
-    visitorName: Zombie
-    maskSprite: {fileID: 21300000, guid: da388e5fb20fc4ed8b9952a654d2b169, type: 3}
-    unmaskSprite: {fileID: 21300000, guid: da388e5fb20fc4ed8b9952a654d2b169, type: 3}
-    bustSprite: {fileID: 21300000, guid: 057e1dd4f6e1e41dd8bce33f4acc2840, type: 3}
-    bustSprite2: {fileID: 21300000, guid: 502ce1d4bd7db4271975659c9ea42c8d, type: 3}
+    visitorName: Pumpkin Girl
+    maskSprite: {fileID: -8950342196772518761, guid: 1b0d0354490e6054797efe8701cd689f, type: 3}
+    unmaskSprite: {fileID: -8950342196772518761, guid: 1b0d0354490e6054797efe8701cd689f, type: 3}
+    bustSprite: {fileID: -3067956356761900037, guid: fc8cfe6ca12422248bdc316a8a39b2a9, type: 3}
+    bustSprite2: {fileID: -3067956356761900037, guid: fc8cfe6ca12422248bdc316a8a39b2a9, type: 3}
     bustAlternateSpeed: 0.5
-    bustAnimation: {fileID: 9100000, guid: dbb2d79147c5dd047991bc76b0d7deed, type: 2}
-    actualType: 1
+    bustAnimation: {fileID: 9100000, guid: 2f0abc843a99321458be5980c102be3f, type: 2}
+    actualType: 0
     baseScoreValue: 100
     difficultyLevel: 1
-    dialoguesJson: {fileID: 4900000, guid: e1e9ea8269b8faa409467e0b1ea3bebc, type: 3}
+    dialoguesJson: {fileID: 4900000, guid: 7f90fe1e412c5744282412e4d24a3702, type: 3}
     textClues: []
     hasSuspiciousFeature: 0
     accentColor: {r: 1, g: 1, b: 1, a: 1}
     greetingSound: {fileID: 0}
     revealSound: {fileID: 0}
-    boinkSprite: {fileID: 21300000, guid: 4eaf3223f6dde4c54b54f843fc95b7e2, type: 3}
+    boinkSprite: {fileID: -8950342196772518761, guid: 1b0d0354490e6054797efe8701cd689f, type: 3}
     boinkSound: {fileID: 0}
     boinkDuration: 0.3
   debugMode: 0
@@ -77,14 +77,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   sprite: {fileID: 0}
---- !u!212 &8727486077497866745
+--- !u!212 &732223694477561261
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2773636609125120596}
+  m_GameObject: {fileID: 249909064461746617}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -126,27 +126,27 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 11
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -8950342196772518761, guid: 1b0d0354490e6054797efe8701cd689f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.86, y: 4.12}
+  m_Size: {x: 3.41, y: 6.42}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!95 &7218456004877356248
+--- !u!95 &6531547556553473279
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2773636609125120596}
+  m_GameObject: {fileID: 249909064461746617}
   m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2f0abc843a99321458be5980c102be3f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
