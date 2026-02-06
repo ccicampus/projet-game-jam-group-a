@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainSceneInitializer
   levelMusic: {fileID: 1771906532507802048}
-  doorBellSound: {fileID: 6999478050650131395}
+  doorBellSound: {fileID: 8300000, guid: 0ff05d598deca412187da453291c2234, type: 3}
   musicTargetVolume: 0.7
   doorHandleScript: {fileID: 0}
 --- !u!82 &1771906532507802048

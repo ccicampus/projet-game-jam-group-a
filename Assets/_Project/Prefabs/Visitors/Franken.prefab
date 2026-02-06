@@ -61,7 +61,7 @@ MonoBehaviour:
     textClues: []
     hasSuspiciousFeature: 0
     accentColor: {r: 1, g: 1, b: 1, a: 1}
-    greetingSound: {fileID: 0}
+    greetingSound: {fileID: 8300000, guid: c5e8545c28d09e741810e34b02fff8b9, type: 3}
     revealSound: {fileID: 0}
     boinkSprite: {fileID: -2659022676237693325, guid: 699708005aaa348e5a55eceddf3a0a2c, type: 3}
     boinkSound: {fileID: 0}

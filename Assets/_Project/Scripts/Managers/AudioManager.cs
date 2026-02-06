@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using System.Collections.Generic;
+using System.Collections;
 
 /// <summary>
 /// Manages all audio playback including music and sound effects
@@ -18,7 +19,7 @@ public class AudioManager : MonoBehaviour
     {
         public const string MAIN_MENU = "MainMenu";
         public const string GAMEPLAY = "Gameplay";
-        public const string BOSS = "Boss";
+        public const string FIGHT = "Fight";
     }
 
     // Singleton
@@ -26,6 +27,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio Sources")]
     [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource introSource;
     [SerializeField] private AudioSource sfxSource;
 
     [Header("Audio Mixer")]
@@ -34,7 +36,8 @@ public class AudioManager : MonoBehaviour
     [Header("Music Clips")]
     [SerializeField] private AudioClip mainMenuMusic;
     [SerializeField] private AudioClip gameplayMusic;
-    [SerializeField] private AudioClip bossMusic;
+    [SerializeField] private AudioClip introFightMusic;
+    [SerializeField] private AudioClip LoopFightMusic;
 
     [Header("Settings")]
     [Range(0f, 1f)]
@@ -79,6 +82,7 @@ public class AudioManager : MonoBehaviour
 
         SetMusicVolume(musicVolume);
         SetSFXVolume(sfxVolume);
+        PlayMusicByName("MainMenu");
     }
 
     public void PlayMusic(AudioClip clip, bool loop = true)
@@ -97,6 +101,10 @@ public class AudioManager : MonoBehaviour
 
         if (musicSource.clip == clip && musicSource.isPlaying)
             return;
+            
+        introSource.clip = introFightMusic;
+        introSource.loop = false;  // Intro plays only once
+        introSource.Stop();
 
         musicSource.clip = clip;
         musicSource.loop = loop;
@@ -109,7 +117,7 @@ public class AudioManager : MonoBehaviour
         {
             MusicTracks.MAIN_MENU => mainMenuMusic,
             MusicTracks.GAMEPLAY => gameplayMusic,
-            MusicTracks.BOSS => bossMusic,
+            MusicTracks.FIGHT => introFightMusic,
             _ => null
         };
 
@@ -208,6 +216,51 @@ public class AudioManager : MonoBehaviour
         {
             sfxSource.volume = sfxVolume;
         }
+    }
+
+    public IEnumerator FadeInMusic(string musicName, float duration)
+    {
+        PlayMusicByName(musicName);
+        musicSource.volume = 0;
+        musicSource.Play();
+
+        float currentTime = 0;
+
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            musicSource.volume = Mathf.Lerp(0, musicVolume, currentTime / duration);
+            yield return null;
+        }
+        musicSource.volume = musicVolume;
+    }
+
+    public IEnumerator FadeOutMusic(float duration)
+    {
+        float startVolume = musicSource.volume;
+        for (float t = 0; t < duration; t += Time.deltaTime)
+        {
+            musicSource.volume = Mathf.Lerp(startVolume, 0, t / duration);
+            yield return null;
+        }
+        musicSource.volume = 0;
+    }
+
+    public void PlayFightMusic()
+    {
+        // Set up the intro source
+        introSource.clip = introFightMusic;
+        introSource.loop = false;  // Intro plays only once
+        introSource.Play();
+        
+        // Set up the loop source but don't play it yet
+        musicSource.clip = LoopFightMusic;
+        musicSource.loop = true;  // This will loop forever
+        
+        // Schedule the loop to start exactly when intro ends
+        // This uses DSP time for sample-accurate timing
+        double introDuration = (double)introFightMusic.samples / introFightMusic.frequency;
+        musicSource.PlayScheduled(AudioSettings.dspTime + introDuration);
     }
 
     public float GetMusicVolume() => musicVolume;

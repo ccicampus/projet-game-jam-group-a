@@ -52,7 +52,9 @@ MonoBehaviour:
   dialogScript: {fileID: 0}
   openingDoor: 0
   spawner: {fileID: 0}
-  numberOfVisitors: 2
+  numberOfVisitors: 1
   judged: 0
+  mainSceneInitializer: {fileID: 0}
   guessing_timer: 3
-  max_guessing_timer: 3
+  max_guessing_timer: 10
+  fight: 0

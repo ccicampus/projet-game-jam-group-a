@@ -61,22 +61,34 @@ public class DoorHandle : MonoBehaviour
             VisitorSpawner.Instance.SpawnNextVisitor();
         }
 
-        StartCoroutine(PlaySoundWithDelay(1.5f));
+        if (doorOpenSound)
+        {
+            StartCoroutine(PlaySoundWithDelay(1.5f, doorOpenSound));
+        }
+        if (VisitorSpawner.Instance.GetCurrentVisitor())
+        {
+            Visitor visitor = VisitorSpawner.Instance.GetCurrentVisitor();
+            if (visitor.GetVisitorData().GreetingSound)
+            {
+                StartCoroutine(PlaySoundWithDelay(3f, visitor.GetVisitorData().GreetingSound));
+            }
+        }
 
         // Hide button after clicked
         clickButton.gameObject.SetActive(false);
         canShowButton = false;
     }
 
-    private IEnumerator PlaySoundWithDelay(float delay)
+    private IEnumerator PlaySoundWithDelay(float delay, AudioClip sfx)
     {
         yield return new WaitForSeconds(delay);
 
-        AudioSource source = GetComponent<AudioSource>();
-        if (source != null && doorOpenSound != null)
-        {
-            source.PlayOneShot(doorOpenSound);
-        }
+        AudioManager.Instance.PlaySFX(sfx);
+        // AudioSource source = GetComponent<AudioSource>();
+        // if (source != null && doorOpenSound != null)
+        // {
+        //     source.PlayOneShot(doorOpenSound);
+        // }
     }
 
     /// <summary>
