@@ -1869,6 +1869,10 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6337471746712069843, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
+      propertyPath: m_SortingOrder
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5500319026152233395, guid: ab19db914fd374b2780aa10f168d0fed, type: 3}
     m_RemovedGameObjects: []
