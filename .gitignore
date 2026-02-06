@@ -59,5 +59,6 @@ ExportedObj/
 .vscode
 
 # Release
+[Nn]ew[Bb]uild/
 [Bb]uild.zip
 [Pp]romo/
