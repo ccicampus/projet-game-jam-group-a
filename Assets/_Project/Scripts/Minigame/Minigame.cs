@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,6 +24,11 @@ public class Minigame : MonoBehaviour
     private SpriteRenderer sprite;
     private bool end = false;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip bonkSFX;
+    [SerializeField] private AudioClip dieSFX;
+    [SerializeField] private AudioClip closeDoorSFX;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,6 +42,7 @@ public class Minigame : MonoBehaviour
         timerText.text = "";
         sprite = GetComponent<SpriteRenderer>();
         doorAnimator.Play("FullyOpen");
+        AudioManager.Instance.PlayFightMusic();
     }
 
     // Update is called once per frame
@@ -108,6 +115,7 @@ public class Minigame : MonoBehaviour
             totalHits -= 1;
             hpText.text = totalHits.ToString();
             visitor.sprite.sprite = visitor.GetVisitorData().BoinkSprite;
+            AudioManager.Instance.PlaySFX(bonkSFX);
         }
     }
 
@@ -127,13 +135,17 @@ public class Minigame : MonoBehaviour
         {
             if (totalHits <= 0)
             {
+                AudioManager.Instance.PlaySFX(dieSFX);
                 hpText.text = "win";
                 end = true;
                 GameManager.Instance.fight = false;
                 VisitorSpawner.Instance.GetCurrentVisitor().Judge(VisitorType.Monster);
                 doorAnimator.SetTrigger("CloseDoor");
+                // StartCoroutine(PlayCloseDoor());
+                AudioManager.Instance.PlaySFX(closeDoorSFX);
                 Destroy(VisitorSpawner.Instance.GetCurrentVisitor().gameObject);
                 SceneTransitionManager.Instance.LoadScene(1);
+                AudioManager.Instance.PlayMusicByName("Gameplay");
                 gameObject.SetActive(false);
             }
             else
@@ -142,4 +154,10 @@ public class Minigame : MonoBehaviour
             }
         }
     }
+
+    // IEnumerator PlayCloseDoor()
+    // {
+    //     yield return new WaitForSeconds(1.0f);
+    //     AudioManager.Instance.PlaySFX(closeDoorSFX);
+    // }
 }

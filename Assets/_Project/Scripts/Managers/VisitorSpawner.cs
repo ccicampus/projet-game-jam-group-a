@@ -125,7 +125,7 @@ public class VisitorSpawner : MonoBehaviour
             Debug.Log($"Spawned visitor #{visitorCount}: {visitorName} at {spawnPos}");
 
         // Trigger appearance
-        currentVisitor.Appear();
+        // currentVisitor.Appear();
 
         return currentVisitor;
     }

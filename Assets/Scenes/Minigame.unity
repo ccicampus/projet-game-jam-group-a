@@ -502,7 +502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952c72dd048509143b5aad88567da2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Minigame
-  totalHits: 3
+  totalHits: 10
   timeout: 10
   hpText: {fileID: 1073597943}
   timerText: {fileID: 1910240387}
@@ -514,6 +514,9 @@ MonoBehaviour:
   versusMonster: {fileID: 1450646495}
   background: {fileID: 1281999087}
   doorAnimator: {fileID: 1769470590}
+  bonkSFX: {fileID: 8300000, guid: 6f90d58c4381c3a46b0a3acdfc80eb22, type: 3}
+  dieSFX: {fileID: 8300000, guid: 33025cc01ee064342bcfc34abdbd1966, type: 3}
+  closeDoorSFX: {fileID: 8300000, guid: 3164bce9df15127438cd9b1de2945817, type: 3}
 --- !u!212 &1040758919
 SpriteRenderer:
   serializedVersion: 2
@@ -1002,6 +1005,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 0}
   treatsButton: {fileID: 0}
   passButton: {fileID: 0}
+  mainSceneInitializer: {fileID: 0}
 --- !u!4 &1469352997
 Transform:
   m_ObjectHideFlags: 0

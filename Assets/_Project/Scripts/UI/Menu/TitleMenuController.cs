@@ -26,7 +26,8 @@ public class TitleMenuController : MonoBehaviour
 
     IEnumerator PlaySoundForClosingDoorWithDelay(float delay)
     {
-        StartCoroutine(FadeOutMusic(1.5f));
+        // StartCoroutine(FadeOutMusic(1.5f));
+        StartCoroutine(AudioManager.Instance.FadeOutMusic(1.0f));
 
         yield return new WaitForSeconds(delay);
 
