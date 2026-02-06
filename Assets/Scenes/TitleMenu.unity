@@ -172,7 +172,7 @@ MonoBehaviour:
   dialogScript: {fileID: 0}
   openingDoor: 0
   spawner: {fileID: 0}
-  numberOfVisitors: 3
+  numberOfVisitors: 1
   judged: 0
   mainSceneInitializer: {fileID: 0}
   guessing_timer: 3
@@ -249,7 +249,7 @@ PrefabInstance:
     - target: {fileID: 5850042242895548941, guid: 31463c5b28df38146a812ef36f56d5aa, type: 3}
       propertyPath: tutorialVisitorPrefab
       value: 
-      objectReference: {fileID: 2773636609125120596, guid: f05fb2f679c3b3c478417e56268dc6ea, type: 3}
+      objectReference: {fileID: 249909064461746617, guid: 014a9d3a5dd4c304d9786dd401605687, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
