@@ -24,6 +24,7 @@ public class Endgame : MonoBehaviour
 
     public void GetToTitleMenu()
     {
+        GameManager.Instance.HardResetManager();
         SceneTransitionManager.Instance.LoadScene(0);
     }
 

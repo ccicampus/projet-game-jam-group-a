@@ -171,12 +171,12 @@ MonoBehaviour:
   dialog: {fileID: 0}
   dialogScript: {fileID: 0}
   openingDoor: 0
+  closingDoorSFX: {fileID: 8300000, guid: 46e8ebf037ae94e1f835cd3d17a998aa, type: 3}
   spawner: {fileID: 0}
   numberOfVisitors: 3
   judged: 0
+  endgame: 0
   mainSceneInitializer: {fileID: 0}
-  guessing_timer: 3
-  max_guessing_timer: 3
   fight: 0
 --- !u!114 &46007799
 MonoBehaviour:

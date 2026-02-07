@@ -28,18 +28,19 @@ public class GameManager : MonoBehaviour
     public GameObject dialog;
     public Dialogs dialogScript;
     public bool openingDoor = false;
+    public AudioClip closingDoorSFX;
 
     [Header("Game Loop")]
     public VisitorSpawner spawner;
     public int numberOfVisitors = 5;
     public int judged = 0;
-    private bool endgame = false;
+    public bool endgame = false;
     public MainSceneInitializer mainSceneInitializer;
     private bool haveReset = false;
 
     [Header("Guessing")]
-    public float guessing_timer = 3f;
-    public float max_guessing_timer = 3f;
+    // public float guessing_timer = 3f;
+    // public float max_guessing_timer = 3f;
     private bool hasTriggeredDialogThisRound = false;
     private float dialogDelayTimer = 0f;
     private const float DIALOG_DELAY = 2f;
@@ -74,13 +75,30 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         InitializeGame();
-        guessing_timer = max_guessing_timer;
+        // guessing_timer = max_guessing_timer;
     }
 
     void Update()
     {
         findReferences();
-        if (judged >= numberOfVisitors && spawner.GetCurrentVisitor() == false)
+        if (endgame)
+        {
+            if (dialog && dialog.activeSelf)
+            {
+                dialog.SetActive(false);
+            }
+            if (treatsButton && passButton)
+            {
+                if (treatsButton.gameObject.activeSelf == true || passButton.gameObject.activeSelf == true)
+                {
+                    treatsButton.gameObject.SetActive(false);
+                    passButton.gameObject.SetActive(false);
+                }
+            }
+            // TRIGGER END SCENE
+            HandleEndGame();
+        }
+        else if (judged >= numberOfVisitors && spawner.GetCurrentVisitor() == false)
         {
             endgame = true;
             if (dialog && dialog.activeSelf)
@@ -91,8 +109,6 @@ public class GameManager : MonoBehaviour
             {
                 doorAnimator.ResetTrigger("OpenDoor");
             }
-            // TRIGGER END SCENE
-            HandleEndGame();
         }
         else if (doorAnimator != null && spawner != null && endgame == false)
         {
@@ -251,20 +267,24 @@ public class GameManager : MonoBehaviour
             dialog.SetActive(false);
         }
 
-        Visitor visitor = VisitorSpawner.Instance.GetCurrentVisitor();
-        guessing_timer -= Time.deltaTime;
-        if ((guessing_timer < 0 && visitor.GetVisitorData().ActualType == VisitorType.Monster) || fight)
+        if (fight)
         {
             SceneTransitionManager.Instance.LoadScene(2);
         }
-        else if (guessing_timer < 0 && visitor.GetVisitorData().ActualType == VisitorType.Kid)
-        {
-            if (visitor.HasBeenJudged == false)
-            {
-                visitor.Judge(VisitorType.Monster);
-                doorAnimator.SetTrigger("CloseDoor");
-            }
-        }
+        // Visitor visitor = VisitorSpawner.Instance.GetCurrentVisitor();
+        // guessing_timer -= Time.deltaTime;
+        // if ((guessing_timer < 0 && visitor.GetVisitorData().ActualType == VisitorType.Monster) || fight)
+        // {
+        //     SceneTransitionManager.Instance.LoadScene(2);
+        // }
+        // else if (guessing_timer < 0 && visitor.GetVisitorData().ActualType == VisitorType.Kid)
+        // {
+        //     if (visitor.HasBeenJudged == false)
+        //     {
+        //         visitor.Judge(VisitorType.Monster);
+        //         doorAnimator.SetTrigger("CloseDoor");
+        //     }
+        // }
     }
 
     void HandleEndGame()
@@ -304,20 +324,21 @@ public class GameManager : MonoBehaviour
 
     void ClickTreats()
     {
-        if (dialogScript.end && guessing_timer > 0)
+        if (dialogScript.end)
         {
             Visitor visitor = VisitorSpawner.Instance.GetCurrentVisitor();
             if (visitor.HasBeenJudged == false)
             {
                 visitor.Judge(VisitorType.Kid);
                 doorAnimator.SetTrigger("CloseDoor");
+                AudioManager.Instance.PlaySFX(closingDoorSFX);
             }
         }
     }
 
     void ClickPass()
     {
-        if (dialogScript.end && guessing_timer > 0)
+        if (dialogScript.end)
         {
             Visitor visitor = VisitorSpawner.Instance.GetCurrentVisitor();
             if (visitor.HasBeenJudged == false)
@@ -330,6 +351,7 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     doorAnimator.SetTrigger("CloseDoor");
+                    AudioManager.Instance.PlaySFX(closingDoorSFX);
                 }
             }
         }
@@ -339,7 +361,7 @@ public class GameManager : MonoBehaviour
     {
         haveReset = true;
         fight = false;
-        guessing_timer = max_guessing_timer;
+        // guessing_timer = max_guessing_timer;
         hasTriggeredDialogThisRound = false;
         dialogDelayTimer = 0f;
         if (mainSceneInitializer)
@@ -350,6 +372,13 @@ public class GameManager : MonoBehaviour
         {
             Destroy(VisitorSpawner.Instance.GetCurrentVisitor().gameObject);
         }
+    }
+
+    public void HardResetManager()
+    {
+        ResetManager();
+        judged = 0;
+        endgame = false;
     }
 
     private void findReferences()
